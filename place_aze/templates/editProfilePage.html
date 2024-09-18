@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="{% static 'Css/studentprofile.css' %}">
+
+</head>
+
+
+<style>
+    .edit{
+            border-radius: 20px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 2vw;
+            gap: 20px;
+            background-color: rgba(237, 239, 240, 0.346);
+            margin-top: 14vh;
+    }
+    .edit h1{
+        font-size: 3vw;
+        margin-bottom: 4vh;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+    input{
+        width: 90%;
+        font-size: 1.5vw;
+        padding: 1vw 5vw ;
+        border-radius: 2vw;
+        border: none;
+        outline: none;
+        background-color: rgba(250, 128, 114, 0.555);
+    }
+    button{
+        background-color: salmon;
+        font-size: 1.4vw;
+        padding: 1vw 5vw ;
+        color: white;
+        width: 80%;
+        border: none;
+        border-radius: 2vw;
+    }
+</style>
+<body>
+
+    <div id="main">
+        <div id="page1">
+            <div id="nav">
+                
+                <div class="prt1">
+                    <img src="{% static 'Images/logo.png' %}" alt="">
+                    
+                </div>
+                
+                
+                <div class="prt2">
+                    <a href="/">Home</a>
+                    <a href="#">Courses</a>
+                    <a href="/studentQuizPage/">Quizes</a>
+                    {% if user.is_authenticated %}
+                    <a href="/studentResultPage/">Results</a>
+                    <a href="/studentProfilePage/">Profile</a>
+                    {% endif %}
+                </div>
+                
+                {% if user.is_authenticated %}
+                
+                <div class="prt3">
+                  <a href="/logoutUser/"><button style="width: fit-content;">Sign out</button></a>
+                  <!-- <i class="ri-menu-3-line"></i> -->
+                  <!-- <div class="admin">
+                   
+                   <h4>Teacher</h4>
+                   <h4>Admin</h4>
+                  
+                  </div> -->
+              </div>
+              {% else %}
+                  <div class="prt3">
+                    <a href="/studentLoginPage/"><button>Sign in</button></a>
+                  <i class="ri-menu-3-line"></i>
+                  <div class="admin">
+                    <style>
+                      /* a{
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        font-size: 1.3vw;
+                        color: black;
+                        font-family: kinta;
+                        line-height: 5vh;
+                      } */
+                   
+    
+                    </style>
+                    <a href="/teacherLoginPage/"><h4>Teacher</h4></a>
+                    <a href="/adminLoginPage/"><h4>Admin</h4></a>
+                   
+                   </div>
+    
+                </div>
+              {% endif %}
+    
+                </div>
+    
+
+                <div class="edit">
+
+                    <h1 style="color: salmon;">Edit Your Profile</h1>
+                    <form action="/updateStudentProfile/" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!-- <label for="name">Enter your Name:- </label> -->
+                        <input type="text" name="name" id="name" value="{{name}}" placeholder="Enter Your Name"><br>
+                        <!-- <label for="mobile">Enter your Contact No.:- </label> -->
+                        <input type="number" name="mobile" id="mobile" value="{{mob}}" placeholder="Contact"> <br>
+                        <!-- <label for="interestedCourse">Interested Course:- </label> -->
+                        <input type="text" name="interestedCourse" id="interestedCourse" value="{{interestedCourse}}" placeholder="Interestest Courses"><br>
+                        <!-- <label for="address">Enter your Address:- </label> -->
+                        <input type="text" name="address" id="address" value="{{address}}" placeholder="Enter Address">
+                        <br>
+                        <button>Update</button>
+                    </form>
+                    <div>
+                        {% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %} 
+                    <li style="color: red; font-size: 2vw;">{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                    </div>
+                
+
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+</html>

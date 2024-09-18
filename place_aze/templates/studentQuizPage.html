@@ -1,0 +1,393 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Quiz Page</title>
+    <link rel="stylesheet" href="{% static 'Css/stuquize.css' %}">
+
+</head>
+<body>
+
+
+
+<div id="main">
+    <div id="page1">
+        <div id="nav">
+                
+            <div class="prt1">
+                <img src="{% static 'Images/logo.png' %}" alt="">
+                
+            </div>
+            
+            
+            <div class="prt2">
+                <a href="/">Home</a>
+                <a href="#">Courses</a>
+                <a href="/studentQuizPage/">Quizes</a>
+                {% if user.is_authenticated %}
+                <a href="/studentResultPage/">Results</a>
+                <a href="/studentProfilePage/">Profile</a>
+                {% endif %}
+            </div>
+            
+            {% if user.is_authenticated %}
+            
+            <div class="prt3">
+              <a href="/logoutUser/"><button>Sign out</button></a>
+              <!-- <i class="ri-menu-3-line"></i> -->
+              <!-- <div class="admin">
+               
+               <h4>Teacher</h4>
+               <h4>Admin</h4>
+              
+              </div> -->
+          </div>
+          {% else %}
+              <div class="prt3">
+                <a href="/studentLoginPage/"><button>Sign in</button></a>
+              <i class="ri-menu-3-line"></i>
+              <div class="admin">
+                <style>
+                  /* a{
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    font-size: 1.3vw;
+                    color: black;
+                    font-family: kinta;
+                    line-height: 5vh;
+                  } */
+               
+
+                </style>
+                <a href="/teacherLoginPage/"><h4>Teacher</h4></a>
+                <a href="/adminLoginPage/"><h4>Admin</h4></a>
+               
+               </div>
+
+            </div>
+          {% endif %}
+
+            </div>
+
+            <div class="centre">
+                <h1>Live Quizzes</h1>
+                
+                {% if liveQuizzes %}
+
+
+                <div class="info">
+                    <div class="data">
+                        <h2>Subject</h2>
+    {% for i in liveQuizzes %}
+                
+                        
+                        <div class="col">
+
+                        <h4>{{i.4}}</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+
+                    <div class="data">
+                        <h2>Topic</h2>
+    {% for i in liveQuizzes %}
+                
+
+                        <div class="col">
+                        <h4>{{i.5}}</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+                    
+                    <div class="data">
+                        <h2>Duration</h2>
+    {% for i in liveQuizzes %}
+                
+
+                        <div class="col">
+                        <h4>{{i.3}} Mins</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+
+                    <div class="data">
+                        <h2>Start Date</h2>
+    {% for i in liveQuizzes %}
+                        
+
+                        <div class="col">
+                        <h4>{{i.6}}</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+                    <div class="data">
+                        <h2>Start Time</h2>
+    {% for i in liveQuizzes %}
+                
+
+                        <div class="col">
+                        <h4>{{i.1}}</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+                    <div class="data">
+                        <h2>End Date</h2>
+    {% for i in liveQuizzes %}
+                
+
+                        <div class="col">
+                        <h4>{{i.7}}</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+                    <div class="data">
+                        <h2>End Time</h2>
+                        {% for i in liveQuizzes %}
+
+
+                        <div class="col">
+                        <h4>{{i.2}}</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+                    <div class="data">
+                        <h2>Give Test</h2>
+    {% for i in liveQuizzes %}
+                
+
+                        <div class="col">
+                        <button><a href="/giveTest/{{i.0}}/">Start Test</a></button>
+                        </div>
+             {% endfor %}
+
+                    </div>
+
+            <td></td>
+                    
+ 
+
+
+                    
+                </div>
+        
+
+
+
+
+            </div>
+            {% else %}
+            <p>No Quizzes Available</p>
+            {% endif %}
+
+            <div class="centre">
+                <h1>Upcoming Quizzes</h1>
+            {% if upcomingQuizzes %}
+
+                {% for i in upcomingQuizzes %}
+
+
+                <div class="info">
+                    <div class="data">
+                        <h2>Subject</h2>
+                        <div class="col">
+                        <h4>{{i.4}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="data">
+                        <h2>Topic</h2>
+                        <div class="col">
+                        <h4>{{i.5}}</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="data">
+                        <h2>Duration</h2>
+                        <div class="col">
+                        <h4>{{i.3}} Mins</h4>
+                        </div>
+                    </div>
+
+                    <div class="data">
+                        <h2>Start Date</h2>
+                        <div class="col">
+                        <h4>{{i.6}}</h4>
+                        </div>
+                    </div>
+                    <div class="data">
+                        <h2>Start Time</h2>
+                        <div class="col">
+                        <h4>{{i.1}}</h4>
+                        </div>
+                    </div>
+                    <div class="data">
+                        <h2>End Date</h2>
+                        <div class="col">
+                        <h4>{{i.7}}</h4>
+                        </div>
+                    </div>
+                    <div class="data">
+                        <h2>End Time</h2>
+                        <div class="col">
+                        <h4>{{i.2}}</h4>
+                        </div>
+                    </div>
+                    <!-- <div class="data">
+                        <h2>Give Test</h2>
+                        <div class="col">
+                        <button>Remind me</button>
+                        </div>
+                    </div> -->
+
+            <td></td>
+                      
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>No Quizzes Available</p>
+            {% endif %}
+
+
+            <div class="centre">
+                <h1>Ended Quizzes</h1>
+                {% if endedQuizzes %}
+
+
+                <div class="info">
+                    <div class="data">
+                        <h2>Subject</h2>
+                {% for i in endedQuizzes %}
+                        
+                        <div class="col">
+
+                        <h4>{{i.4}}</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+
+                    <div class="data">
+                        <h2>Topic</h2>
+                {% for i in endedQuizzes %}
+
+                        <div class="col">
+                        <h4>{{i.5}}</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+                    
+                    <div class="data">
+                        <h2>Duration</h2>
+                {% for i in endedQuizzes %}
+
+                        <div class="col">
+                        <h4>{{i.3}} Mins</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+
+                    <div class="data">
+                        <h2>Start Date</h2>
+                {% for i in endedQuizzes %}
+
+                        <div class="col">
+                        <h4>{{i.6}}</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+                    <div class="data">
+                        <h2>Start Time</h2>
+                {% for i in endedQuizzes %}
+
+                        <div class="col">
+                        <h4>{{i.1}}</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+                    <div class="data">
+                        <h2>End Date</h2>
+                {% for i in endedQuizzes %}
+
+                        <div class="col">
+                        <h4>{{i.7}}</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+                    <div class="data">
+                        <h2>End Time</h2>
+                {% for i in endedQuizzes %}
+
+                        <div class="col">
+                        <h4>{{i.2}}</h4>
+                        </div>
+             {% endfor %}
+
+                    </div>
+                    <div class="data">
+                        <h2>Give Test</h2>
+                {% for i in endedQuizzes %}
+
+                        <div class="col">
+                        <button><a href="/viewTest/{{i.0}}/">View Test</a></button>
+                        </div>
+             {% endfor %}
+
+                    </div>
+
+            <td></td>
+                    
+ 
+
+
+                    
+                </div>
+        
+                {% else %}
+            <p>No Quizzes Available</p>
+            {% endif %}
+
+
+
+            </div>
+
+
+
+
+    </div>
+</div>
+
+    <div>
+        {% if messages %}
+    <ul class="messages">
+    {% for message in messages %} 
+
+    <script>
+        alert(`{{message}}`)
+    </script>
+    <!-- <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> -->
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+    <div>
+    
+  
+</body>
+</html>

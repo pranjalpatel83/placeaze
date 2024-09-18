@@ -1,0 +1,171 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile Picture</title>
+    <link rel="stylesheet" href="{% static 'Css/studentprofile.css' %}">
+
+</head>
+    <style>
+
+        .mid{
+background-color: rgba(234, 230, 230, 0.257);
+width: 40%;
+margin-left: auto;
+margin-right: auto;
+display: flex;
+flex-direction: column;
+gap: 6vh;
+margin-top: 10vh;
+padding: 2vw;
+border-radius: 2vw;
+        }
+        .mid h1{
+            font-size: 2vw;
+        }
+        .mid label{
+            font-size: 2vw;
+        }
+.mid h3{
+    display: flex;
+    align-items: center;
+    gap: 5vw;
+    font-size: 2vw;
+    font-family: kinta;
+}
+.mid img{
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.im{
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+}
+
+
+
+.mid h1{
+    font-size: 3vw;
+    font-weight: 500;
+}
+    </style>
+
+<body>
+
+    <div id="main">
+        <div id="page1">
+            <div id="nav" style=" align-items: center; display: flex;">
+                
+                <div class="prt1">
+                    <img src="{% static 'Images/logo.png' %}" alt="">
+                    
+                </div>
+                
+                
+                <div class="prt2">
+                    <a href="/">Home</a>
+                    <a href="#">Courses</a>
+                    <a href="/studentQuizPage/">Quizes</a>
+                    {% if user.is_authenticated %}
+                    <a href="/studentResultPage/">Results</a>
+                    <a href="/studentProfilePage/">Profile</a>
+                    {% endif %}
+                </div>
+                
+                {% if user.is_authenticated %}
+                
+                <div class="prt3">
+                  <a href="/logoutUser/"><button>Sign out</button></a>
+                  <!-- <i class="ri-menu-3-line"></i> -->
+                  <!-- <div class="admin">
+                   
+                   <h4>Teacher</h4>
+                   <h4>Admin</h4>
+                  
+                  </div> -->
+              </div>
+              {% else %}
+                  <div class="prt3">
+                    <a href="/studentLoginPage/"><button>Sign in</button></a>
+                  <i class="ri-menu-3-line"></i>
+                  <div class="admin">
+                    <style>
+                      /* a{
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        font-size: 1.3vw;
+                        color: black;
+                        font-family: kinta;
+                        line-height: 5vh;
+                      } */
+                   
+    
+                    </style>
+                    <a href="/teacherLoginPage/"><h4>Teacher</h4></a>
+                    <a href="/adminLoginPage/"><h4>Admin</h4></a>
+                   
+                   </div>
+    
+                </div>
+              {% endif %}
+    
+                </div>
+    
+
+               <div class="mid">
+
+                <h1>Edit Profile Picture</h1>
+                <h3>Current Picture:- <img src="/media/{{picture}}"  width="100px" height="100px" alt=""></h3>
+
+                 
+                <form action="/updateStudentProfilePicture/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="im">
+                        <label for="profilePicture">New Picture:- </label>
+                    <input type="file" name="img">
+                    </div>
+                    <button id="up" style=" padding: 1.5vw 2vw;
+                    border: none;
+                    outline: none;
+                    border-radius: 2vw;
+                    margin-top: 4vh;
+                    background-color: salmon;
+                    font-size: 1.6vw;
+                    cursor: pointer;">Update</button>
+                </form>
+               </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div>
+        {% if messages %}
+    <ul class="messages">
+    {% for message in messages %} 
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+    <p></p>
+   
+
+</body>
+</html>

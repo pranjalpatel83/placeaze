@@ -1,0 +1,141 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Signup Page</title>
+    <link rel="stylesheet" href="{% static 'Css/signup.css' %}">
+</head>
+<body>
+  
+    <div id="main">
+
+
+        <div id="page1">
+
+            <div id="nav">
+                
+                <div class="prt1">
+                    <img src="{% static 'Images/logo.png' %}" alt="">
+                    
+                </div>
+                
+                
+                <div class="prt2">
+                    <a href="">Home</a>
+                    <a href="">Courses</a>
+                    <a href="">Quizes</a>
+                </div>
+                
+                {% if user.is_authenticated %}   
+                <div class="prt3">
+                  
+                  <i class="ri-menu-3-line"></i>
+                  <div class="admin">
+                   
+                   <h4>Teacher</h4>
+                   <h4>Admin</h4>
+                  
+                  </div>
+              </div>
+              {% else %}
+                  <div class="prt3">
+                    
+                  <i class="ri-menu-3-line"></i>
+                  <div class="admin">
+                   
+                    <h4>Teacher</h4>
+                    <h4>Admin</h4>
+                   
+                   </div>
+        
+                </div>
+              {% endif %}
+        
+                </div>
+
+                {% if request.session.details %}
+            
+                <div id="sign" class="signup">
+
+                <div class="lef">
+                 <img src="http://pngimg.com/uploads/student/student_PNG13.png" alt="">
+     
+                </div>
+                <div id="otp" class="rig">
+                    <p>{{request.session.stemail}}</p>
+                    
+                    <form action="/studentSignup/" method="post">
+                        {% csrf_token %}
+                        
+                        <input id="kp" type="number" name="otp"  placeholder="OTP">
+                        <input id="kp" type="submit">
+                        <div>
+                            {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <h1 {% if message.tags %} class="{{ message.tags }}"{% endif %}>* {{ message }} *</h1>
+                        
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                        </div>
+                    </form>
+     
+                </div>
+     
+     
+                </div>
+            
+          
+            {% else %}
+           <div class="signup">
+
+           <div class="lef">
+            <img src="http://pngimg.com/uploads/student/student_PNG13.png" alt="">
+
+           </div>
+           <div class="rig">
+            <h1>SignUp Page</h1>
+            <form class="formsignup" method="post">
+                {% csrf_token %}
+                
+                <input type="email" name="email" placeholder="Enter Your Email" id="email" required ><br>
+                <input class="pass" type="password" placeholder="Password" name="password" id="password" required ><br>
+                <input class="confirm" type="password" name="confrimPassword" placeholder="Confirm Password" id="confrimPassword" required ><br>
+                <input style="cursor: pointer;" class="submit" type="submit"><br>
+                
+                <p>Already have an account?<a href="/studentLoginPage/">Login</a></p>
+            </form>
+
+           </div>
+
+
+           </div>
+            {% endif %}
+        
+        
+        
+        
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+ <script src="{% static 'js/signup.js' %}"></script>
+</body>
+</html>

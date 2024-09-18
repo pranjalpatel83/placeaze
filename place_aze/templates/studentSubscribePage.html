@@ -1,0 +1,555 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subscription Page</title>
+    
+    <style>
+       
+       *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+height: 100%;
+width: 100%;
+}
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    
+}
+#nav{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vw 3.5vw;
+    /* background-color: rgba(254, 196, 189, 0.387); */
+    border-bottom-left-radius: 30px ;
+    border-bottom-right-radius:30px ;
+    
+    
+    
+}
+.prt2{
+    display: flex;
+    gap: 7vw;
+}
+.prt1 {
+    display: flex;
+    align-items: center
+    ;
+}
+.prt1 img{
+    height: 4vw;
+}
+.prt3{
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    /* background-color: black; */
+    position: relative;
+}
+.prt3 i{
+    font-size: 2.2vw;
+    cursor: pointer;
+    color: salmon;
+    transition: all ease 0.3s;
+    z-index: 9    ;
+}
+
+.admin{
+    position: absolute;
+    padding: 1.5vw;
+    
+    border-radius: 20px;
+    /* background-color: salmon; */
+    color: salmon;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+        bottom: -100px;
+        right: -20%;
+        height: 8vw;
+        transition: all ease 0.3s;
+        opacity: 0;
+        text-align: start;
+        
+        
+
+}
+.admin h4{
+    font-size: 1.3vw;
+    line-height: 1.3vh;
+    font-family: kinta;
+    
+}
+.prt3 button{
+    font-size: 1.4vw;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.9vw 2vw;
+    border: none;
+    background-color: salmon;
+    color: white;
+    font-family: gilroy;
+
+}
+.prt2 a{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: 600;
+}
+
+#content{
+    
+    height: calc(100vh - 100px);
+    width: 100%;
+    /* background-color: skyblue; */
+    display: flex;
+    
+    
+}
+#left{
+    width: 50%;
+    height: 100%;
+/* background-color: slateblue; */
+padding: 10vw 5vw;
+
+}
+#left h3{
+    font-size: 2.2vh;
+    opacity: 0.9;
+    padding-bottom: 4vh;
+}
+#left h1{
+    font-size: 4.8vw;
+    font-weight: 800;
+    line-height: 10vh;
+}
+#left h1 span{
+    color: salmon;
+    
+}
+
+#right{
+    width: 50%;
+    height: 100%;
+/* background-color: rosybrown; */
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#right img{
+    height: 57vh;
+}
+#left button{
+    font-size: 1.4vw;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.9vw 2vw;
+    border: none;
+    background-color: salmon;
+    color: white;
+    font-family: gilroy;
+    margin-top: 3vw;
+}
+
+#page2{
+    min-height: 100vh;
+    width: 100%;
+
+}
+
+.swiper {
+    width: 90%;
+    height: 50%;
+    margin-top: 8vh;
+  }
+
+  .swiper-slide {
+    
+    font-size: 18px;
+    /* background: #8a2929; */
+    width: 20%;
+  }
+
+  /* .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  } */
+
+  .swiper-slide {
+    width: 25% !important;
+  }
+
+  .swiper-slide:nth-child(2n) {
+    width: 20%;
+  }
+
+  .swiper-slide:nth-child(3n) {
+    width: 20%;
+  }
+
+  
+
+#page2 #nav{
+height: 100px;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+#page2 #nav h4{
+    font-size: 1vw;
+   opacity: 0.8; 
+   line-height: 2vh;
+   font-weight: 400;
+} 
+#page2 #nav h3{
+    font-size: 2.4vw;
+    line-height: 9vh;
+
+}
+#page2 #nav h3 span{
+    color: salmon;
+}
+#page2 #services {
+    height: 55vh;
+    width: 100%;
+    /* background-color: rosybrown; */
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    padding: 0 4vw;
+    overflow: hidden;
+    margin-top: 5vh;
+    
+    
+
+}
+#page2  .card{
+    height: 100%;
+    width: 100%;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    padding: 2vw;
+    /* border: 1px solid black;  */
+    transition: all ease 0.3s;
+    
+    
+    
+}
+#page2 #services .card:hover{
+    /* background-color: black; */
+    box-shadow: 10px 10px 70px 10px rgb(221, 192, 189);
+    scale:1;
+}
+
+
+.card h2{
+    font-size: 2.3vw;
+    font-weight: 600;
+    font-family: kinta;
+}
+.card p{  
+    font-size: 1.2vw;
+}
+
+#page2  .card img{
+    height: 7vw;
+
+}
+#page2 #nav p{
+    width: 80%;
+    font-size: 1vw;
+}
+.con{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.nav2{
+    margin-top: 15vh;
+}
+
+#freecourses{
+    margin-top: 5vh;
+    height: 55vh;
+    width: 100%;
+    /* background-color: rosybrown; */
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+.course{
+    width: 60%;
+    height: 100%;
+    /* background-color: royalblue; */
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 10px 10px 50px 10px rgba(0, 0, 0, 0.336);
+}
+.lef{
+    height: 100%;
+    width: 40%;
+    /* background-color: gainsboro; */
+}
+.righ{
+    height: 100%;
+    padding: 4vw 3vw;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 60%;
+    /* background-color: rebeccapurple; */
+}
+.lef img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    
+    
+}
+.hours{
+    display: flex;
+    gap: 30px;
+    margin-top: 1vw;
+}
+.hours h4{
+    padding-right: 2vw;
+    border-right: 1px solid black;
+    font-size: 1.3vw;
+}
+.righ p{
+    font-size: 1vw;
+}
+
+.lef .box {
+    width: fit-content;
+    background-color: salmon;
+    padding: 1vw;
+    /* border-radius: 20px; */
+    position: absolute;
+}
+.righ button{
+    font-size: 1.4vw;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.9vw 2vw;
+    border: none;
+    background-color: salmon;
+    color: white;
+    font-family: gilroy;
+    margin-top: 1.3vh;
+    width: 40%;
+}
+  .card img{
+    height: 10vh;
+
+    object-fit: cover;
+    object-position: center;
+  }
+     
+      .card {
+        background-color: rgba(237, 204, 201, 0.233);
+        padding: 25px;
+        border: 1px solid #bbbbbb;
+        width: 27%;
+        align-items: center;
+        height: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10vh;
+        display: flex;
+        flex-direction: column;
+        
+        gap: 4vh;
+        border-radius: 2vw;
+        box-shadow: 1px 1px 10px 0px rgb(0 0 0 / 25%);
+      }
+      .card h1{
+        font-size: 3.5vw;
+        font-weight: 900;
+        font-family: kinta;
+      }
+      .card h3{
+        font-weight: 400;
+        font-size: 1.8vw;
+      }
+      .card h4{
+        font-weight: 900;
+        font-family: kinta;
+      }
+      .title {
+        text-align: center;
+        letter-spacing: 1px;
+      }
+      .muted {
+        color: #8e7f7f;
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 1.3vw;
+      }
+      .btn_container {
+        padding: 20px;
+        text-align: center;
+      }
+      .btn {
+        border-radius: 4px;
+        cursor: pointer;
+        padding: 1vw 2vw ;
+        background-color: salmon;
+        color: white;
+        font-size: 1.2em;
+        font-weight: 600;
+        letter-spacing: 1px;
+        border: none;
+        border-radius: 1.3vw;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="page1">
+        <div id="nav">
+                
+          <div class="prt1">
+              <img src="{% static 'Images/logo.png' %}" alt="">
+              
+          </div>
+          
+          
+          <div class="prt2">
+              <a href="/">Home</a>
+              <a href="#">Courses</a>
+              <a href="/studentQuizPage/">Quizes</a>
+              {% if user.is_authenticated %}
+              <a href="/studentResultPage/">Results</a>
+              <a href="/studentProfilePage/">Profile</a>
+              {% endif %}
+          </div>
+          
+          {% if user.is_authenticated %}
+          
+          <div class="prt3">
+            <a href="/logoutUser/"><button>Sign out</button></a>
+            <!-- <i class="ri-menu-3-line"></i> -->
+            <!-- <div class="admin">
+             
+             <h4>Teacher</h4>
+             <h4>Admin</h4>
+            
+            </div> -->
+        </div>
+        {% else %}
+            <div class="prt3">
+              <a href="/studentLoginPage/"><button>Sign in</button></a>
+            <i class="ri-menu-3-line"></i>
+            <div class="admin">
+              <style>
+                a{
+                  text-transform: uppercase;
+                  text-decoration: none;
+                  font-size: 1.3vw;
+                  color: black;
+                  font-family: kinta;
+                  line-height: 5vh;
+                }
+             
+    
+              </style>
+              <a href="/teacherLoginPage/"><h4>Teacher</h4></a>
+              <a href="/adminLoginPage/"><h4>Admin</h4></a>
+             
+             </div>
+    
+          </div>
+        {% endif %}
+    
+          </div>
+          <div class="card">
+            <h1 class="title">Subscribe</h1>
+            <img src="http://www.pngall.com/wp-content/uploads/5/Online-Payment-PNG-HD-Image.png" alt="">
+          
+              <div style="display: flex; flex-direction: column; gap: 2vh; align-items: center;" class="plans">
+                <h3>Subscription charges:- </h3>
+             <div style="display: flex; flex-direction: column; gap: 1vh; align-items: center;" class="p">
+              <h2>₹500 for 6 Months</h2>
+              <!-- <h4>₹1000 for 12 Months</h4> -->
+
+             </div>
+              </div>
+
+            <div class="btn_container">
+              <!-- Payment Button -->
+              <button class="btn" id="pay-btn">PayNow</button>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    
+   
+  </body>
+   
+  <!-- Razorpay's Javascript code. -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    var options = {
+       
+      // Enter the Key ID generated from the Dashboard
+      key: "{{ razorpay_merchant_key }}", 
+       
+      // Amount is in currency subunits.
+      // Default currency is INR. Hence, 
+      // 50000 refers to 50000 paise
+      amount: "{{ razorpay_amount }}", 
+      currency: "{{ currency }}",
+       
+      // Your/store name.
+      name: "PlacEaze", 
+       
+      // Pass the `id` obtained in the response of Step 1
+      order_id: "{{ razorpay_order_id }}", 
+      callback_url: "{{ callback_url }}",
+    };
+     
+    // initialise razorpay with the options.
+    var rzp1 = new Razorpay(options);
+     
+    // add event listener to the payment button.
+    document.getElementById("pay-btn").onclick = function (e) {
+      rzp1.open();
+      e.preventDefault();
+    };
+  </script>
+</html>

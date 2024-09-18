@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Questions Page</title>
+    <link rel="stylesheet" href="{% static 'css/displayquestion.css' %}">
+
+</head>
+<body>
+
+<div id="main">
+    <div id="page1">
+        <div id="nav">
+                        
+            <div class="prt1">
+                <img src="{% static 'Images/logo.png' %}" alt="">    
+                
+            </div>
+            
+            
+            <div class="prt2">
+                <a href="/">Home</a>
+            <a href="/logoutUser/">Logout</a>
+
+
+                <!-- <a href="">Courses</a>
+                <a href="">-Quizes</a> -->  
+            </div>
+            
+              
+           
+          
+    
+            </div>
+            
+            <div class="quetion">
+                <h1>Questions </h1>
+                {% for i in qList %}
+                <div class="que">
+                  <h3><span>Q.{{i.0}}</span>  {{i.1}}  </h3>  
+                  <div class="options">
+                    <h5><span>a</span> {{i.2}} </h5>
+                  <h5><span>b</span> {{i.3}} </h5>
+                  <h5><span>c</span> {{i.4}} </h5>
+                  <h5><span>d</span> {{i.5}} </h5>
+                  </div>
+                  <h4>Ans :- {{i.6}} <span id="mark">Marks:{{i.7}}</span></h4>
+                  
+                </div>
+            {% endfor %}
+            
+
+    <div>
+        {% if messages %}
+    <ul class="messages">
+    {% for message in messages %} 
+    <script>
+        alert(`{{message}}`)
+    </script>
+    <li style="color: red; font-size: 1.5vw;"  {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+   
+
+
+
+
+
+            </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

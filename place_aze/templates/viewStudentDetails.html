@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+</head>
+<body>
+    <div>
+        {% if messages %}
+    <ul class="messages">
+    {% for message in messages %} 
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+    <p>Name:- {{name}}</p>
+    <p>Email:- {{email}}</p>
+    <p>Contact No.:- {{mob}}</p>
+    <p>Interested Course:- </p>
+    {% for i in interestedCourse %}
+    {% if i == '' %}
+    {% else %}
+    <li>{{i}}</li>
+    {% endif %}
+    {% endfor %}
+    <p>Address:- {{address}}</p>
+    <p>Picture:- <img src="/media/{{picture}}"  width="100px" height="100px" alt=""></p>
+</body>
+</html>

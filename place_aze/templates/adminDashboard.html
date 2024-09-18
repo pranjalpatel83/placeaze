@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/teacherdashboard.css' %}">
+
+</head>
+<body>
+    <div id="main">
+        <div id="page1">
+
+<div id="left">
+    <h2>Menu</h2>
+    
+    
+    <div class="work" style="display: flex; flex-direction: column; gap: 3vh; margin-top: 10vh;">
+        <a href="/approveTeacherPage/">Approve Teacher</a>
+        <a href="/approveQuizPage/">Approve Quiz</a>
+        <a href="/studentsList/">Students List</a>
+        <a href="/teachersList/">Teachers List</a>
+        <a href="/viewAllQuizzes/">Quizzes</a>
+        <a href="/viewAllResults/">Results</a>
+    </div>
+
+
+
+</div>
+<div id="right">
+    <div id="nav">
+                    
+        <div class="prt1">
+            <img src="{% static 'Images/logo.png' %}" alt="">
+            
+        </div>
+        
+        
+        <div class="prt2">
+            <a href="/">Home</a>
+            <a href="/logoutUser/">Logout</a>
+            
+            <!-- <a href="">Courses</a>
+            <a href="">-Quizes</a> -->
+        </div>
+    
+       
+
+        </div>
+
+
+        <!-- <h1><p>Welcome, {{request.user}} Dashoard</p></h1>-->
+
+
+        <h1>Welcome to Admin Dashboad</h1>
+
+        <div>
+            {% if messages %}
+        <ul class="messages">
+        {% for message in messages %} 
+        <script>
+            alert('{{message}}')
+        </script>
+        <!-- <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> -->
+        {% endfor %}
+        </ul>
+        {% endif %}
+        </div>
+</div>
+           
+          
+        </div>
+    </div>
+    
+   
+ 
+    
+</body>
+</html>

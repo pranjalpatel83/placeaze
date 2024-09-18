@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+height: 100%;
+width: 100%;
+}
+
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    
+}
+#nav{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vw 3.5vw;
+    /* background-color: rgba(254, 196, 189, 0.387); */
+    border-bottom-left-radius: 30px ;
+    border-bottom-right-radius:30px ;
+    
+    
+    
+}
+.prt2{
+    display: flex;
+    gap: 7vw;
+}
+.prt1 {
+    display: flex;
+    align-items: center
+    ;
+}
+.prt1 img{
+    height: 4vw;
+}
+.prt3{
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    /* background-color: black; */
+    position: relative;
+}
+.prt3 i{
+    font-size: 2.2vw;
+    cursor: pointer;
+    color: salmon;
+    transition: all ease 0.3s;
+    z-index: 9    ;
+}
+
+.admin{
+    position: absolute;
+    padding: 1.5vw;
+    
+    border-radius: 20px;
+    /* background-color: salmon; */
+    color: salmon;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+        bottom: -100px;
+        right: -20%;
+        height: 8vw;
+        transition: all ease 0.3s;
+        opacity: 0;
+        text-align: start;
+        
+        
+
+}
+.admin h4{
+    font-size: 1.3vw;
+    line-height: 1.3vh;
+    font-family: kinta;
+    
+}
+.prt3 button{
+    font-size: 1.4vw;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.9vw 2vw;
+    border: none;
+    background-color: salmon;
+    color: white;
+    font-family: gilroy;
+
+}
+.prt2 a{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: 600;
+}
+
+.signup{
+    width: 80%;
+    height: 70%;
+    /* background-color: royalblue; */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-top: 7vh;
+}
+
+.lef{
+    height: 100%;
+    width: 50%;
+    /* background-color: beige; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.lef img{
+    height: 70%;
+    object-fit: cover;
+    object-position: center;
+}
+.rig{
+    height: 100%;
+    width: 50%;
+    padding: 2vw 2vw;
+    padding-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    box-shadow: 10px 10px 80px 10px rgba(0, 0, 0, 0.082);
+    padding-bottom: 2vw;
+    margin-bottom: 2vw;
+    border-radius: 20px;
+}
+.rig form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.rig form input{
+    padding: 1vw;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    width: 90%;
+    font-size: 1.3vw;
+    font-family: kinta;
+    font-weight: 800;
+    background-color: rgb(252, 192, 185);
+    
+
+}
+.rig h1{
+    font-size: 3vw;
+    color: salmon;
+}
+.rig p{
+    font-size: 1.3vw;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  
+}
+.rig p a{
+    text-decoration: none;
+    color: salmon;
+    font-size: 2vw;
+    margin-top: -10px;
+}
+ #kp{
+   
+   width: 40%;
+}
+
+h1{
+    font-size: 2vw;
+    text-align: center;
+    margin-top: 3vh;
+    color: red;
+}
+#otp{
+    width: 60%;
+    height: 50%;
+    display: flex;
+}

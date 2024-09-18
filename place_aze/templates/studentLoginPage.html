@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login Page</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <link rel="stylesheet" href="{% static 'css/studentlogin.css' %}">
+</head>
+<body>
+   <div id="main">
+    
+   <div class="page1">
+    <div id="nav">
+                
+        <div class="prt1">
+            <img src="{% static 'Images/logo.png' %}" alt="">
+            
+        </div>
+        
+        
+        <div class="prt2">
+            <a href="/">Home</a>
+            <a href="#">Courses</a>
+            <a href="/studentQuizPage/">Quizes</a>
+        </div>
+        
+        {% if user.is_authenticated %}   
+        <div class="prt3">
+          
+          <i class="ri-menu-3-line"></i>
+          <div class="admin">
+           
+           <h4>Teacher</h4>
+           <h4>Admin</h4>
+          
+          </div>
+      </div>
+      {% else %}
+          <div class="prt3">
+            
+          <i class="ri-menu-3-line"></i>
+          <div class="admin">
+           
+            <a href="/teacherLoginPage/"><h4>Teacher</h4></a>
+            <a href="/adminLoginPage/"><h4>Admin</h4></a>
+            <!-- <h4>Admin</h4> -->
+           
+           </div>
+
+        </div>
+      {% endif %}
+
+        </div>
+  
+    <div id="messagePop">
+        {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <script>
+        alert(`{{message}}`);
+    </script>
+    <!-- <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> -->
+    {% endfor %}
+</ul>
+{% endif %}
+    </div>
+
+<div class="middle">
+    
+   <div class="left">
+    <div class="cont">
+        <h1>  Login page</h1>
+            <form action="/studentLogin/" method="post">
+                {% csrf_token %}
+                <input type="email" name="email" id="email" placeholder="Email"><br>
+               <input type="password" name="password" id="password" placeholder="Password"><br>
+             
+                <input class="subbutton" type="submit"><br>
+                <p>Don't have an account? <a href="/studentSignupPage/">Create an account</a></p>
+                <p><a href="/studentForgotPasswordPage/">Forgot Password</a></p>
+               
+            </form>
+        </div>
+   </div>
+   <div class="right">
+    <img src="http://cliparts.co/cliparts/pc7/Bra/pc7Branc9.png" alt="">
+   </div>
+</div>
+
+
+   </div>
+
+
+
+
+
+   </div>
+<script src="{% static 'js/login.js' %}"></script>
+
+</body>
+</html>

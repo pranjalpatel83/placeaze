@@ -1,0 +1,186 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+height: 100%;
+width: 100%;
+}
+
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    
+}
+#nav{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vw 3.5vw;
+    /* background-color: rgba(254, 196, 189, 0.387); */
+    border-bottom-left-radius: 30px ;
+    border-bottom-right-radius:30px ;
+    
+    
+    
+}
+.prt2{
+    display: flex;
+    gap: 7vw;
+}
+.prt1 {
+    display: flex;
+    align-items: center
+    ;
+}
+.prt1 img{
+    height: 4vw;
+}
+.prt3{
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    /* background-color: black; */
+    position: relative;
+}
+.prt3 i{
+    font-size: 2.2vw;
+    cursor: pointer;
+    color: salmon;
+    transition: all ease 0.3s;
+    z-index: 9    ;
+}
+
+.admin{
+    position: absolute;
+    padding: 1.5vw;
+    
+    border-radius: 20px;
+    /* background-color: salmon; */
+    color: salmon;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+        bottom: -100px;
+        right: -20%;
+        height: 8vw;
+        transition: all ease 0.3s;
+        opacity: 0;
+        text-align: start;
+        
+        
+
+}
+.admin h4{
+    font-size: 1.3vw;
+    line-height: 1.3vh;
+    font-family: kinta;
+    
+}
+.prt3 button{
+    font-size: 1.4vw;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.9vw 2vw;
+    border: none;
+    background-color: salmon;
+    color: white;
+    font-family: gilroy;
+
+}
+.prt2 a{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: 600;
+}
+
+.test{
+    /* background-color: blue; */
+    padding: 3vw;
+    background-color: rgba(207, 204, 204, 0.329);
+    
+    
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+}
+.top h2{
+    font-family: kinta;
+    font-size: 2vw;
+    line-height: 4vh;
+}
+.top span{
+    font-family: kinta;
+    font-size: 2vw;
+    line-height: 4vh;
+    color: salmon;
+
+}
+.test h1{
+font-weight: 600;
+    font-size: 4vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    color: salmon;
+}
+.test h3{
+    font-size: 2.4vw;
+    font-weight: 500;
+    margin-bottom: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.top h3{
+    color: salmon;
+    font-family: kinta;
+    font-size: 2vw;
+    line-height: 4vh;
+    font-weight: 900;
+}
+
+.que h5{
+    font-size: 2vw;
+    font-family: kinta;
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+    /* background-color: red; */
+}
+.que span{
+    font-size: 2vw;
+    font-family: kinta;
+
+}
+.options{
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    gap: 2vh;
+    margin-bottom: 3vh;
+    margin-left: 2vw;
+}
+.que input{
+    font-size: 2vw;
+    padding: 12vw;
+}
+
+input[type="radio"] {
+    transform: scale(1.5); /* Adjust the scale factor as needed */
+    ;}
+
+   #subbutton{
+        padding: 1.5vw 2vw;
+        background-color: salmon;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 2vw;
+    margin-left: 70%;
+    }

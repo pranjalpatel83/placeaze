@@ -1,0 +1,355 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+height: 100%;
+width: 100%;
+}
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    
+}
+#nav{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vw 3.5vw;
+    /* background-color: rgba(254, 196, 189, 0.387); */
+    border-bottom-left-radius: 30px ;
+    border-bottom-right-radius:30px ;
+    
+    
+    
+}
+.prt2{
+    display: flex;
+    gap: 7vw;
+}
+.prt1 {
+    display: flex;
+    align-items: center
+    ;
+}
+.prt1 img{
+    height: 4vw;
+}
+.prt3{
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    /* background-color: black; */
+    position: relative;
+}
+.prt3 i{
+    font-size: 2.2vw;
+    cursor: pointer;
+    color: salmon;
+    transition: all ease 0.3s;
+    z-index: 9    ;
+}
+
+.admin{
+    position: absolute;
+    padding: 1.5vw;
+    
+    border-radius: 20px;
+    /* background-color: salmon; */
+    color: salmon;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+        bottom: -100px;
+        right: -20%;
+        height: 8vw;
+        transition: all ease 0.3s;
+        opacity: 0;
+        text-align: start;
+        
+        
+
+}
+.admin h4{
+    font-size: 1.3vw;
+    line-height: 1.3vh;
+    font-family: kinta;
+    
+}
+.prt3 button{
+    font-size: 1.4vw;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.9vw 2vw;
+    border: none;
+    background-color: salmon;
+    color: white;
+    font-family: gilroy;
+
+}
+.prt2 a{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: 600;
+}
+
+#content{
+    
+    height: calc(100vh - 100px);
+    width: 100%;
+    /* background-color: skyblue; */
+    display: flex;
+    
+    
+}
+#left{
+    width: 50%;
+    height: 100%;
+/* background-color: slateblue; */
+padding: 10vw 5vw;
+
+}
+#left h3{
+    font-size: 2.2vh;
+    opacity: 0.9;
+    padding-bottom: 4vh;
+}
+#left h1{
+    font-size: 4.8vw;
+    font-weight: 800;
+    line-height: 10vh;
+}
+#left h1 span{
+    color: salmon;
+    
+}
+
+#right{
+    width: 50%;
+    height: 100%;
+/* background-color: rosybrown; */
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#right img{
+    height: 57vh;
+}
+#left button{
+    font-size: 1.4vw;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.9vw 2vw;
+    border: none;
+    background-color: salmon;
+    color: white;
+    font-family: gilroy;
+    margin-top: 3vw;
+}
+
+#page2{
+    min-height: 100vh;
+    width: 100%;
+
+}
+
+.swiper {
+    width: 90%;
+    height: 50%;
+    margin-top: 8vh;
+  }
+
+  .swiper-slide {
+    
+    font-size: 18px;
+    /* background: #8a2929; */
+    width: 20%;
+  }
+
+  /* .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  } */
+
+  .swiper-slide {
+    width: 25% !important;
+  }
+
+  .swiper-slide:nth-child(2n) {
+    width: 20%;
+  }
+
+  .swiper-slide:nth-child(3n) {
+    width: 20%;
+  }
+
+  
+
+#page2 #nav{
+height: 100px;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+#page2 #nav h4{
+    font-size: 1vw;
+   opacity: 0.8; 
+   line-height: 2vh;
+   font-weight: 400;
+} 
+#page2 #nav h3{
+    font-size: 2.4vw;
+    line-height: 9vh;
+
+}
+#page2 #nav h3 span{
+    color: salmon;
+}
+#page2 #services {
+    height: 55vh;
+    width: 100%;
+    /* background-color: rosybrown; */
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    padding: 0 4vw;
+    overflow: hidden;
+    margin-top: 5vh;
+    
+    
+
+}
+#page2  .card{
+    height: 100%;
+    width: 100%;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    padding: 2vw;
+    /* border: 1px solid black;  */
+    transition: all ease 0.3s;
+    
+    
+    
+}
+#page2 #services .card:hover{
+    /* background-color: black; */
+    box-shadow: 10px 10px 70px 10px rgb(221, 192, 189);
+    scale:1;
+}
+
+
+.card h2{
+    font-size: 2.3vw;
+    font-weight: 600;
+    font-family: kinta;
+}
+.card p{  
+    font-size: 1.2vw;
+}
+
+#page2  .card img{
+    height: 7vw;
+
+}
+#page2 #nav p{
+    width: 80%;
+    font-size: 1vw;
+}
+.con{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.nav2{
+    margin-top: 15vh;
+}
+
+#freecourses{
+    margin-top: 5vh;
+    height: 55vh;
+    width: 100%;
+    /* background-color: rosybrown; */
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+.course{
+    width: 60%;
+    height: 100%;
+    /* background-color: royalblue; */
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 10px 10px 50px 10px rgba(0, 0, 0, 0.336);
+}
+.lef{
+    height: 100%;
+    width: 40%;
+    /* background-color: gainsboro; */
+}
+.righ{
+    height: 100%;
+    padding: 4vw 3vw;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 60%;
+    /* background-color: rebeccapurple; */
+}
+.lef img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    
+    
+}
+.hours{
+    display: flex;
+    gap: 30px;
+    margin-top: 1vw;
+}
+.hours h4{
+    padding-right: 2vw;
+    border-right: 1px solid black;
+    font-size: 1.3vw;
+}
+.righ p{
+    font-size: 1vw;
+}
+
+.lef .box {
+    width: fit-content;
+    background-color: salmon;
+    padding: 1vw;
+    /* border-radius: 20px; */
+    position: absolute;
+}
+.righ button{
+    font-size: 1.4vw;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.9vw 2vw;
+    border: none;
+    background-color: salmon;
+    color: white;
+    font-family: gilroy;
+    margin-top: 1.3vh;
+    width: 40%;
+}

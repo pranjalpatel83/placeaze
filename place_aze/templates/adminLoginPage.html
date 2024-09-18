@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/adminlogin.css' %}">
+    
+    <title>Admin Login Page</title>
+</head>
+<body>
+  
+    
+
+  <div id="main">
+        <div class="page1">
+            <div id="nav">
+                        
+                <div class="prt1">
+                    <img src="{% static 'Images/logo.png' %}" alt="">    
+                    
+                </div>
+                
+                
+                <div class="prt2">
+                    <a href="/">Home</a>
+
+                    <!-- <a href="">Courses</a>
+                    <a href="">-Quizes</a> -->  
+                </div>
+                
+                  
+               
+              
+        
+                </div>
+        <div class="middle">
+            
+            <div id="messagePop">
+                <div>
+                    {% if messages %}
+                <ul class="messages">
+                {% for message in messages %}
+                <script>
+                    alert(`{{message}}`)
+                </script> 
+                <!-- <li style="color: red; font-size: 2vw; " {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> -->
+                {% endfor %}
+                </ul>
+                {% endif %}
+                </div>
+            </div>
+
+           <div class="left">
+            <div class="cont">
+                <h1>  Admin's Login page</h1>
+                {% if request.session.details %}
+                <form style=" display: flex; flex-direction: column; align-items: center; gap: 3vh;" action="/adminLogin/" method="post">
+                    {% csrf_token %}
+                
+                    <input type="number" name="otp" id="otp" placeholder="Enter your OTP Here">
+                    <input style="cursor: pointer;" type="submit">
+                    
+                </form>
+                {% else %}
+                <form action="/adminLoginOTP/" method="post">
+                    {% csrf_token %}
+                    
+                    <input type="email" name="email" id="email" placeholder="email"><br>
+                    <input type="password" name="password" id="password" placeholder="password"><br>
+                    <input type="submit"><br>
+                    <p><a href="/adminForgotPasswordPage/">Forgot Password</a></p>
+                </form>
+                {% endif %}
+               
+                </div>
+           </div>
+           <div class="right">
+            <img src="https://www.pngall.com/wp-content/uploads/4/Teacher-PNG-Picture.png" alt="">
+           </div>
+        </div>
+        
+        
+           </div>
+        
+      </div>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

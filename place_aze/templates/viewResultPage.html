@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Result Page</title>
+</head>
+<body>
+    <div>
+        {% if messages %}
+    <ul class="messages">
+    {% for message in messages %} 
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+    <table>
+        <th>Email</th>
+        <th>Scored Marks</th>
+        <th>Submit Date</th>
+        <th></th>
+        {% for i in resultList %}
+        <tr>
+            <td>{{i.0}}</td>
+            <td>{{i.1}}</td>
+            <td>{{i.2}}</td>
+            <td><button><a href="/displayAnswers/{{i.3}}/{{testId}}/{{i.4}}/">Display Answers</a></button></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,122 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/interested.css' %}">
+
+    <title>Students List</title>
+</head>
+<body>
+    <div id="main">
+        <div id="page1">
+            <div id="nav">
+                        
+                <div class="prt1">
+                    <img src="{% static 'Images/logo.png' %}" alt="">    
+                    
+                </div>
+                
+                
+                <div class="prt2">
+                    <a href="/">Home</a>
+    
+                    <!-- <a href="">Courses</a>
+                    <a href="">-Quizes</a> -->  
+                </div>
+                
+                  
+               
+              
+        
+                </div>
+                <div>
+                    {% if messages %}
+                <ul class="messages">
+                {% for message in messages %} 
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+                </div>
+                
+
+                
+                
+                <div class="centre">
+                    <h1>Interested Students</h1>
+                    
+                  <div class="bol">
+                    <div class="col">
+                        <h1>Name</h1>
+                    <div class="data">
+                {% for i in studentList %}
+
+                     <h5>{{i.1}}</h5>
+        {% endfor %}
+
+                     
+
+                     </div>
+                    </div>
+                    <div class="col">
+                        <h1>Email</h1>
+                        <div class="data">
+                {% for i in studentList %}
+
+                            <h5>{{i.0}}</h5>
+        {% endfor %}
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h1>Contact</h1>
+                        <div class="data">
+                {% for i in studentList %}
+
+                            <h5>{{i.2}}</h5>
+        {% endfor %}
+
+                        </div>
+                    </div>
+                
+                  </div>
+
+
+
+                </div>
+        
+
+
+
+
+        </div>
+    </div>
+   
+    <!-- <div>
+        {% if messages %}
+    <ul class="messages">
+    {% for message in messages %} 
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+    <table>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th></th>
+        {% for i in studentList %}
+        <tr>
+            <td>{{i.1}}</td>
+            <td>{{i.0}}</td>
+            <td>{{i.2}}</td>
+            <td><button><a href="/viewStudentDetails/{{i.0}}/">View Details</a></button></td>
+        </tr>
+        {% endfor %}
+    </table> -->
+</body>
+</html>

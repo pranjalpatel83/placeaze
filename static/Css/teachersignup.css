@@ -1,0 +1,184 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+height: 100%;
+width: 100%;
+}
+
+#main{
+    height: 100%;
+    width: 100%;
+}
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    
+}
+#nav{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vw 3.5vw;
+    /* background-color: rgba(254, 196, 189, 0.387); */
+    border-bottom-left-radius: 30px ;
+    border-bottom-right-radius:30px ;
+    
+    
+    
+}
+.prt2{
+    display: flex;
+    gap: 7vw;
+}
+.prt1 {
+    display: flex;
+    align-items: center
+    ;
+}
+.prt1 img{
+    height: 4vw;
+}
+.prt3{
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    /* background-color: black; */
+    position: relative;
+}
+.prt3 i{
+    font-size: 2.2vw;
+    cursor: pointer;
+    color: salmon;
+    transition: all ease 0.3s;
+    z-index: 9    ;
+}
+
+#page1 #centre{
+    /* background-color: red; */
+    /* height: 80vh; */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 4vh;
+    gap: 10vw;
+
+}
+.right{
+    /* background-color: black; */
+    padding: 5vw;
+  height: 80vh;
+}
+.right img{
+    height: 80%;
+    
+    object-fit: cover;
+    
+}
+.mid{
+    /* height: 100%;
+    width: 40%; */
+    /* background-color: rosybrown; */
+    padding: 1vw 3vw; 
+    box-shadow: 10px 10px 80px 10px rgba(0, 0, 0, 0.058);
+}
+.mid h1{
+    font-size: 3.4vw;
+    font-weight: 600;
+    padding: 2vw;
+    font-family: kinta;
+    margin-bottom: 2vh;
+    color: salmon;
+}
+ .mid form{
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    
+ }
+ 
+.prt2 a{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: 600;
+    background-color: salmon;
+    padding: 1vw;
+    border-radius: 20px;
+    color: white;
+}
+
+ form input{
+    width: 60%;
+    padding: 1vw;
+    border-radius: 2vw;
+    font-size: 1.2vw;
+    outline: none;
+    border: none;
+    color: black;
+    background-color: rgba(254, 164, 154, 0.305);
+
+ }
+ #message .messages li{
+  
+ }
+
+ #otpform > #otp{
+    width: 50%;
+ }
+
+
+ form textarea{
+    height: 14vh;
+    font-size: 1.2vw;
+    padding: 1vw 1vw;
+    border-radius: 2vw;
+    border: none;
+    outline: none;
+    width: 60%;
+    background-color: rgba(254, 164, 154, 0.305);
+
+ }
+ form select{
+    padding: .9vw;
+    width: 40%;
+    font-size: 1.2vw;
+    outline: none;
+    border: none;
+    background-color: rgba(254, 164, 154, 0.305);
+
+ }
+
+ .name{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+ }
+
+ #filename{
+    font-size: 2vw;
+    font-weight: 900;
+    font-family: kinta;
+ }
+ #file{
+    padding: 1vw;
+    background-color: transparent;
+    /* height: 6vh; */
+    /* background-color: red; */
+ }
+ #SubButton{
+    width: 40%;
+    background-color: salmon;
+
+    padding: 0.9vw;
+    border-radius: 2vw;
+    border: none;
+    color: white;
+    font-size: 1.82vw;
+ }

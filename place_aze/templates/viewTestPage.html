@@ -1,0 +1,119 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Test Page</title>
+    <link rel="stylesheet" href="{% static 'css/viewtest.css' %}">
+
+</head>
+<body>
+    <div id="main">
+        <div id="page1">
+            <div id="nav">
+                        
+                <div class="prt1">
+                    <img src="{% static 'Images/logo.png' %}" alt="">    
+                    
+                </div>
+                
+                
+                <div class="prt2">
+                    <a href="/">Home</a>
+            <a href="/logoutUser/">Logout</a>
+
+    
+                    <!-- <a href="">Courses</a>
+                    <a href="">-Quizes</a> -->  
+                </div>
+                
+                  
+               
+              
+        
+                </div>
+                <div>
+                    {% if messages %}
+                <ul class="messages">
+                {% for message in messages %} 
+                <script>
+                    alert(`{{message}}`)
+                </script>
+                <li style="color: red; font-size: 1.5vw; "   {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+                </div>
+            
+
+                <div class="centre">
+                
+                    <div class="col">
+                        <h1>Test-Id</h1>
+                    <div style="gap: 4vh;" class="data">
+                        {% for i in testDetails %}
+                     <h5>{{i.0}}</h5>
+                    {% endfor %}
+
+                     </div>
+                    </div>
+                    <div class="col">
+                        <h1>Subject</h1>
+                        <div style="gap: 4vh;" class="data">
+                        {% for i in testDetails %}
+                          <h5>{{i.1}}</h5>
+                    {% endfor %}
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h1>Topic</h1>
+                        <div style="gap: 4vh;" class="data">
+                        {% for i in testDetails %}
+
+                            <h5>{{i.2}}</h5>
+                    {% endfor %}
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h1>View Here</h1>
+                        <div style="gap: 4vh;" class="data">
+                        {% for i in testDetails %}
+                            <button style="margin-top: -3vh; font-size: 1.4vw;"><a style="font-size: 1.2vw;" href="/displayQuestionsPage/{{i.0}}/">View Questions</a></button>
+                    {% endfor %}
+
+                        </div>
+
+                    </div>
+                    
+
+
+
+
+
+                    <!-- <table>
+                        <th>Test-Id</th>
+                        <th>Subject</th>
+                        <th>Topic</th>
+                        <th></th>
+                       
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                     
+                    </table> -->
+                </div>
+
+
+
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,276 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placeaze</title>
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+    
+
+</head>
+<body>
+ 
+
+
+    <div id="main">
+
+        <div id="page1">
+
+            <div id="nav">
+                
+            <div class="prt1">
+                <img src="{% static 'Images/logo.png' %}" alt="">
+                
+            </div>
+            
+            
+            <div class="prt2">
+                <a href="/">Home</a>
+                <a href="#">Courses</a>
+                <a href="/studentQuizPage/">Quizes</a>
+                {% if user.is_authenticated %}
+                <a href="/studentResultPage/">Results</a>
+                <a href="/studentProfilePage/">Profile</a>
+                {% endif %}
+            </div>
+            
+            {% if user.is_authenticated %}
+            
+            <div class="prt3">
+              <a href="/logoutUser/"><button>Sign out</button></a>
+              <!-- <i class="ri-menu-3-line"></i> -->
+              <!-- <div class="admin">
+               
+               <h4>Teacher</h4>
+               <h4>Admin</h4>
+              
+              </div> -->
+          </div>
+          {% else %}
+              <div class="prt3">
+                <a href="/studentLoginPage/"><button>Sign in</button></a>
+              <i class="ri-menu-3-line"></i>
+              <div class="admin">
+                <style>
+                  a{
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    font-size: 1.3vw;
+                    color: black;
+                    font-family: kinta;
+                    line-height: 5vh;
+                  }
+               
+
+                </style>
+                <a href="/teacherLoginPage/"><h4>Teacher</h4></a>
+                <a href="/adminLoginPage/"><h4>Admin</h4></a>
+               
+               </div>
+
+            </div>
+          {% endif %}
+
+            </div>
+
+               <div id="content">
+                
+            <div id="left">
+             
+                <h3>Welcome To Our School</h3>
+                <h1>Best Place to Be <br> Ready For</h1>
+                <h1><span>Placement!</span></h1>
+                <button><a style="text-decoration: none; font-size: 2vw; color:white ;"  href="/studentSubscribePage/">Subscribe Now</a></button>
+                <h5 style="font-size: 1.7vw; color: salmon; margin-top: 3vh;"> {% if remainingTime %}
+                  Remaining Days :- {{remainingTime}}
+                  {% endif %}</h5>
+                 
+                  <div>
+                    {% if messages %}
+                <ul class="messages">
+                {% for message in messages %} 
+                <script>
+               
+                  alert(`{{ message }}`)
+                </script>
+                <!-- <li style="color: red; font-size: 2vw; " {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> -->
+                {% endfor %}
+                </ul>
+                {% endif %}
+                </div>
+            </div>
+            <div id="right">
+                <img src="{% static 'Images/ladki.png' %}" alt="">
+                
+            </div>
+               </div> 
+
+
+        </div>
+        <div id="page2">
+            
+            <div id="nav">
+              <div class="con">
+                <h4>OUR SERVICES</h4>
+                <h3>Provided  <span>Services</span></h3>
+              </div>
+            </div>
+
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+
+                    <div class="card">
+                        <img src="{% static 'Images/openbook.png' %}" alt="">
+                        <h2>Useful Tricks</h2>
+                        <p>Lorem ipsum dolor sit ! <br> Lorem, ipsum dolor. <br> lorem</p>
+    
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+
+                    <div class="card">
+                        <img src="{% static 'Images/openbook.png' %}" alt="">
+                        <h2>Useful Tricks</h2>
+                        <p>Lorem ipsum dolor sit ! <br> Lorem, ipsum dolor. <br> lorem</p>
+    
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card">
+                        <img src="{% static 'Images/books.png' %}" alt="">
+                        <h2>Ready Target</h2>
+                        <p>Lorem ipsum dolor sit ! <br> Lorem, ipsum dolor. <br> lorem</p>
+    
+                    </div>
+
+                  </div>
+                  <div class="swiper-slide">
+
+                    <div class="card">
+                        <img src="{% static 'Images/creative.webp' %}" alt="">
+                        <h2>Creative Ideas</h2>
+                        <p>Lorem ipsum dolor sit ! <br> Lorem, ipsum dolor. <br> lorem</p>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+
+                    <div class="card">
+                        <img src="{% static 'Images/openbook.png' %}" alt="">
+                        <h2>Useful Tricks</h2>
+                        <p>Lorem ipsum dolor sit ! <br> Lorem, ipsum dolor. <br> lorem</p>
+    
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+
+                    <div class="card">
+                        <img src="{% static 'Images/openbook.png' %}" alt="">
+                        <h2>Useful Tricks</h2>
+                        <p>Lorem ipsum dolor sit ! <br> Lorem, ipsum dolor. <br> lorem</p>
+    
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card">
+                        <img src="{% static 'Images/books.png' %}" alt="">
+                        <h2>Ready Target</h2>
+                        <p>Lorem ipsum dolor sit ! <br> Lorem, ipsum dolor. <br> lorem</p>
+    
+                    </div>
+
+                  </div>
+                  <div class="swiper-slide">
+
+                    <div class="card">
+                        <img src="{% static 'Images/creative.webp' %}" alt="">
+                        <h2>Creative Ideas</h2>
+                        <p>Lorem ipsum dolor sit ! <br> Lorem, ipsum dolor. <br> lorem</p>
+                    </div>
+                  </div>
+                 
+                 
+                </div>
+                
+              </div>
+            
+
+              
+           
+
+            <div class="nav2" id="nav">
+
+                <div class="con">
+                    <h4>OUR FREE COURSES</h4>
+                    <h3>What You Can <span>Learn</span></h3>
+                    
+                    <p>You just think about PlacEaze whenever you need free CSS templates for your business website</p>
+
+                  </div>    
+            </div>
+
+            <div id="freecourses">
+
+                <div class="course">
+                  <div class="lef">
+                    <div class="box">
+                      <h2>Free</h2>
+                    </div>
+
+                    <img src="{% static 'Images/web.jpg' %}" alt="">
+  
+
+                  </div>
+                  <div class="righ">
+
+                    <h1>Web Development</h1>
+
+
+                    <p>Did you know that you can visit TooCSS website for latest listing of HTML templates and a variety of useful templates.</p>
+
+
+                    <p>You just need to go and visit that website right now. IF you have any suggestion or comment about this template, you can feel free to go to contact page for our email address.</p>
+
+                    
+                    <div class="hours">
+                      <h4>36 hours</h4>
+                      <h4>4 Weeks</h4>
+                      <h4>3 Certificates</h4>
+
+                    </div>
+
+                    <button>Subscribe</button>
+
+                  </div>
+                                      
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,164 @@
+{% load static %}
+  
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give Test</title>
+    <link rel="stylesheet" href="{% static 'Css/givetest.css' %}">
+
+</head>
+
+
+<body>
+
+  
+    <div id="main">
+      <div id="page1">
+
+        <div id="nav">
+                
+          <div class="prt1">
+              <img src="{% static 'Images/logo.png' %}" alt="">
+              
+          </div>
+          
+          
+          <!-- <div class="prt2">
+              <a href="">Home</a>
+              <a href="">Courses</a>
+              <a href="">Quizes</a>
+          </div>
+          
+          {% if user.is_authenticated %}   
+          <div class="prt3">
+            
+            <i class="ri-menu-3-line"></i>
+            <div class="admin">
+             
+             <h4>Teacher</h4>
+             <h4>Admin</h4>
+            
+            </div>
+        </div>
+        {% else %}
+            <div class="prt3">
+              
+            <i class="ri-menu-3-line"></i>
+            <div class="admin">
+             
+              <h4>Teacher</h4>
+              <h4>Admin</h4>
+             
+             </div>
+  
+          </div>
+        {% endif %} -->
+  
+          </div>
+          <div>
+            {% if messages %}
+        <ul class="messages">
+        {% for message in messages %} 
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        </div>
+        <form action="/submitTest/{{testId}}/" method="post">
+          <div class="test">
+            <div class="top">
+              <div class="t">
+                <h2>Subject:- {{subject}}  </h2>
+              <h2>Topic:- {{topic}}</h2>  
+              </div>
+              <h3 id="timer" ><span>Timer :- </span>00: <span>{{duration}}</span>  :00</h3>
+            
+  
+            </div>
+
+            <h1>Quetions:-</h1>
+            {% csrf_token %}
+            {% for i in qList %}
+
+            <div class="que">
+
+              <h3>Q{{i.1}} {{i.2}} <span style="display: none;">Max Marks: {{i.7}}</span>    </h3>
+
+    
+          <div class="options">
+            <h5><input type="radio" id="a" name="{{i.0}}" value="a"> <span>A {{i.3}}</span></h5>
+    
+            <h5><input type="radio" id="b" name="{{i.0}}" value="b"> <span>B {{i.4}}</span></h5>
+   
+   <h5> <input type="radio" id="c" name="{{i.0}}" value="c"> <span>C {{i.5}}</span> </h5>
+  
+   <h5>  <input type="radio" id="d" name="{{i.0}}" value="d"> <span>D {{i.6}}</span> </h5>
+          </div>
+
+
+
+
+            </div>
+  {% endfor %}
+
+  <button id="subbutton">Submit Now</button>
+
+
+         .
+          </div>
+      </form>
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+<script>
+
+var dur=document.querySelector(".top h3") ;
+var ti=dur.childNodes[2].innerText;
+console.log(ti)
+
+
+
+const duration = ti * 60; // 20 minutes in seconds
+let timer = duration;
+
+// Update the timer every second
+const countdown = setInterval(function () {
+    const minutes = Math.floor(timer / 60);
+    let seconds = timer % 60;
+
+    // Add leading zero to seconds if necessary
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    // Display the timer
+    document.getElementById('timer').textContent = `Timer :- ` + minutes + ':' + seconds;
+
+    // Decrease the timer
+    if (--timer < 0) {
+        clearInterval(countdown);
+        document.getElementById('timer').textContent = 'Time is up!';
+        alert("Time is up")
+        // You can add additional actions here when the timer reaches zero
+        var form=document.querySelector("form");
+
+        form.submit();
+
+
+    }
+}, 1000);
+
+</script>
+
+</body>
+</html>

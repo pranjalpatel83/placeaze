@@ -1,0 +1,11 @@
+qid,q,a,b,c,d,ans,marks
+1,What is the currency of Japan?,Yen,Yuan,Korean Won,Renminbi,b,1
+2,What is the tallest mountain in the world?,Mount Everest,K2,Kangchenjunga,Lhotse,a,2
+3,What is the largest bone in the human body?,Femur,Tibia,Fibula,Patella,a,2
+4,What is the process of changing a gas into a liquid called?,Condensation,Evaporation,Precipitation,Sublimation,b,1
+5,Which of the following is a carnivore?,Lion,Zebra,Giraffe,Elephant,a,2
+6,What is the chemical formula for water?,H2O,CO2,O2,NH3,d,2
+7,What is the capital of Germany?,Berlin,Munich,Hamburg,Cologne,a,1
+8,Who painted the Mona Lisa?,Leonardo da Vinci,Michelangelo,Raphael,Sandro Botticelli,b,1
+9,What is the name of the world's largest rainforest?,Amazon rainforest,Congo rainforest,Southeast Asian rainforest,Temperate rainforest,a,2
+10,C++ is an example of what type of programming language?,Object-oriented,Procedural,Scripting,Markup,c,1

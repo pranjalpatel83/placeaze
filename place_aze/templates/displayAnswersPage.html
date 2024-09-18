@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Answers Page</title>
+</head>
+<body>
+    <div>
+        {% if messages %}
+    <ul class="messages">
+    {% for message in messages %} 
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+    <table>
+        <th>QId</th>
+        <th>Question</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>Ans</th>
+        <th>Marked Ans</th>
+        <th>Marks</th>
+        {% for i in qList %}
+        <tr>
+            <td>{{i.0}}</td>
+            <td>{{i.1}}</td>
+            <td>{{i.2}}</td>
+            <td>{{i.3}}</td>
+            <td>{{i.4}}</td>
+            <td>{{i.5}}</td>
+            <td>{{i.6}}</td>
+            <td>{{i.8}}</td>
+            <td>{{i.7}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

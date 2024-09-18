@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+height: 100%;
+width: 100%;
+}
+
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    
+}
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    
+}
+#nav{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vw 3.5vw;
+    /* background-color: rgba(254, 196, 189, 0.387); */
+    border-bottom-left-radius: 30px ;
+    border-bottom-right-radius:30px ;
+    
+    
+    
+}
+.prt2{
+    display: flex;
+    gap: 7vw;
+}
+.prt1 {
+    display: flex;
+    align-items: center
+    ;
+}
+.prt1 img{
+    height: 4vw;
+}
+.prt3{
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    /* background-color: black; */
+    position: relative;
+}
+.prt3 i{
+    font-size: 2.2vw;
+    cursor: pointer;
+    color: salmon;
+    transition: all ease 0.3s;
+    z-index: 9    ;
+}
+
+.prt3 button{
+    font-size: 1.4vw;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.9vw 2vw;
+    border: none;
+    background-color: salmon;
+    color: white;
+    font-family: gilroy;
+
+}
+
+.centre{
+    /* background-color: red; */
+    /* height: 50vh; */
+    padding: 2vw;
+    margin-top: 3vh;
+    
+
+}
+.centre h1{
+    padding-bottom: 3vh;
+    font-size: 3vw;
+    color: salmon;
+}
+.prt2 a{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: 600;
+}
+
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(219, 221, 227, 0.349);
+    border-radius: 20px;
+padding: 1vw;
+
+}
+
+.data{
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;align-items: center;
+     
+}
+.data h2{
+    font-family: gilroy;
+    font-weight: 600;
+    font-size:2vw;
+}
+.col h4{
+font-size:  1.2vw;
+text-transform: uppercase;
+font-family: kinta;
+font-weight: 800;
+
+}
+.col button{
+    font-size: 1.2vw;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.9vw 1vw;
+    border: none;
+    background-color: salmon;
+    color: white;
+    font-family: gilroy;
+    text-decoration: none;
+    margin-top: -2vh;
+
+}
+.col a{
+    font-size: 1.2vw;
+color: white;
+font-family: gilroy;
+cursor: pointer;
+    text-decoration: none;
+
+
+}

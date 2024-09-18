@@ -1,0 +1,99 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Test Page</title>
+    <link rel="stylesheet" href="{% static 'css/createtest.css' %}">
+
+</head>
+<body>
+
+<div id="main">
+    <div id="page1">
+        <div id="nav">
+                        
+            <div class="prt1">
+                <img src="{% static 'Images/logo.png' %}" alt="">    
+                
+            </div>
+            
+            
+            <div class="prt2">
+                <a href="/">Home</a>
+            <a href="/logoutUser/">Logout</a>
+
+
+                <!-- <a href="">Courses</a>
+                <a href="">-Quizes</a> -->  
+            </div>
+            
+              
+           
+          
+    
+            </div>
+
+
+       <div class="mid">
+        <h1>Create Test</h1>
+
+
+         <form method="POST" action="/createTest/" enctype="multipart/form-data">
+            {% csrf_token %}
+    <div id="k" class="sub">
+        <label for="subject">Subject:-</label>
+    <input type="text" id="subject" name="subject" placeholder="Subject">
+    </div>
+    <div id="k" class="topic">
+        <label for="topic">Topic:-</label>
+    <input type="text" id="topic" name="topic" placeholder="Topic">
+    </div>
+   <div id="k" class="upload">
+    <label for="doc">CSV Upload:-</label>
+    <input type="file" id="doc" name="doc">
+   </div>
+  <div id="k" class="startdate">
+    <label for="startDate">Start Date:-</label>
+    <input type="date" id="startDate" name="startDate" >
+  </div>
+   <div id="k" class="starttime">
+    <label for="startTime">Start Time:-</label>
+    <input type="time" id="startTime" name="startTime">
+   </div>
+  <div id="k" class="enddate">
+    <label for="endDate">End Date:-</label>
+    <input type="date" id="endDate" name="endDate">
+  </div>
+   <div id="k" class="endtime">
+    <label for="endTime">End Time:-</label>
+    <input type="time" id="endTime" name="endTime">
+   </div>
+    <div id="k" class="duration">
+        <label for="duration">Duration(in min):-</label>
+    <input type="number" id="duration" name="duration" placeholder="Enter Duration">
+    </div>
+    
+    <p><input id="subbutton" type="submit" value="Create Exam"></p>
+    </form>
+       </div>
+    </div>
+</div>
+
+    
+    <div>
+        {% if messages %}
+    <ul id="k" class="messages">
+    {% for message in messages %} 
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+   
+</body>
+</html>

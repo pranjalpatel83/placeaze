@@ -1,0 +1,291 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Quiz</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/displayquestion.css' %}"> -->
+
+</head>
+<style>
+body{
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+height: 100%;
+width: 100%;
+}
+#nav{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vw 3.5vw;
+    /* background-color: rgba(254, 196, 189, 0.387); */
+  border-bottom: 1px solid black;
+    
+    
+    
+}
+.prt3{
+    display: flex;
+    gap: 3vw;
+}
+.prt2{
+    display: flex;
+    gap: 7vw;
+}
+.prt1 {
+    display: flex;
+    align-items: center
+    ;
+}
+.prt1 img{
+    height: 4vw;
+}
+.prt2 a{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: 600;
+    /* background-color: salmon; */
+    padding: 1vw;
+    border-radius: 20px;
+    /* color: white; */
+}
+.prt3 button{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: 600;
+    background-color: salmon;
+    padding: 1vw;
+    border-radius: 20px;
+    color: white;
+    border: none;
+
+}
+
+
+#main{
+    height: 100%;
+    width: 100%;
+}
+
+#page1{
+    min-height: 100%;
+    width: 100%;
+    
+}
+.quetion{
+    width: 100%;
+    /* height: 70vh; */
+    /* background-color: red; */
+    padding: 2vw;
+
+}
+.quetion h1{
+
+    font-size: 2.9vw;
+    font-family: gilroy;
+    font-weight: 700;
+    color: salmon;
+}
+
+.que {
+    
+    padding-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    /* background-color: royalblue; */
+
+}
+.que h3{
+    display: flex;
+    font-size: 1.6vw;
+    font-family: kinta;
+    align-items: center;
+    gap: 2vw;
+    
+    
+}
+
+h3 span{
+    font-size: 1.6vw;
+    font-family: kinta;
+    align-items: center;
+}
+
+.que h5{
+    font-size: 1.3vw;
+    display: flex;
+    gap: 2.2vw;
+    margin-left: 1vw;
+    
+    line-height: 2.7vh;
+    font-family: kinta;
+}
+.que span{
+    font-size: 1.3vw;
+    font-family: kinta;
+    
+}
+.que  h4{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    font-size: 1.5vw;
+
+}
+}
+</style>
+
+<body>
+
+    <div id="main">
+        <div id="page1">
+            <div id="nav">
+                    
+                <div class="prt1">
+                    <img src="{% static 'Images/logo.png' %}" alt="">
+                    
+                </div>
+                
+                
+                <!-- <div class="prt2">
+                    <a href="/">Home</a>
+                    <a href="#">Courses</a>
+                    <a href="/studentQuizPage/">Quizes</a>
+                    {% if user.is_authenticated %}
+                    <a href="/studentResultPage/">Results</a>
+                    <a href="/studentProfilePage/">Profile</a>
+                    {% endif %}
+                </div> -->
+                
+                {% if user.is_authenticated %}
+                
+                <div class="prt3">
+                    <a href="/"><button>Home</button></a>
+
+                  <a href="/logoutUser/"><button>Sign out</button></a>
+                  <!-- <i class="ri-menu-3-line"></i> -->
+                  <!-- <div class="admin">
+                   
+                   <h4>Teacher</h4>
+                   <h4>Admin</h4>
+                  
+                  </div> -->
+              </div>
+              {% else %}
+                  <div class="prt3">
+                    <a href="/studentLoginPage/"><button>Sign in</button></a>
+                  <i class="ri-menu-3-line"></i>
+                  <div class="admin">
+                   
+                    <a href="/teacherLoginPage/"><h4>Teacher</h4></a>
+                    <a href="/adminLoginPage/"><h4>Admin</h4></a>
+                   
+                   </div>
+    
+                </div>
+              {% endif %}
+    
+                </div>
+                
+                <div class="quetion">
+                    <h1>Questions </h1>
+                    {% for i in qList %}
+                    <div class="que">
+                      <h3><span>Q.{{i.0}}</span>  {{i.1}}  </h3>  
+                      <div class="options">
+                        <h5><span>a</span> {{i.2}} </h5>
+                      <h5><span>b</span> {{i.3}} </h5>
+                      <h5><span>c</span> {{i.4}} </h5>
+                      <h5><span>d</span> {{i.5}} </h5>
+                      </div>
+                      <h4>Ans :- {{i.6}} <span id="mark">Marks:{{i.7}}</span></h4>
+                      
+                    </div>
+                {% endfor %}
+                
+    
+        <!-- <div>
+            {% if messages %}
+        <ul class="messages">
+        {% for message in messages %} 
+        <li style="color: red; font-size: 1.5vw;"  {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        </div> -->
+       
+    
+    
+    
+    
+    
+                </div>
+    
+        </div>
+    </div>
+    
+    
+    
+
+
+
+
+
+
+
+
+    <!-- <div>
+        {% if messages %}
+    <ul class="messages">
+    {% for message in messages %} 
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div> -->
+    <!-- <form action="/editQuestions/{{test}}" method="post">
+        {% csrf_token %} -->
+    <!-- <table>
+        <!-- <th></th> -->
+        <!-- <th>QId</th>
+        <th>Question</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>Ans</th>
+        <th>Marks</th> -->
+<!--         
+        {% for i in qList %}
+        <tr>
+            <!-- <td><input type="radio" name="qUid" value="{{i.8}}"></td> -->
+            <!-- <td>{{i.0}}</td>
+            <td>{{i.1}}</td>
+            <td>{{i.2}}</td>
+            <td>{{i.3}}</td>
+            <td>{{i.4}}</td>
+            <td>{{i.5}}</td>
+            <td>{{i.6}}</td>
+            <td>{{i.7}}</td> -->
+        <!-- </tr> -->
+        <!-- {% endfor %} --> -->
+        
+    <!-- </table> --> -->
+    <!-- <button type="submit" name="update">Update</button>
+    <button type="submit" name="delete">Delete</button>
+        </form> -->
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/teachersignup.css' %}">
+
+    <title>Teacher Signup Page</title>
+</head>
+<body>
+   
+
+
+    <div id="page1">
+
+        <div id="nav">
+            
+            <div class="prt1">
+                <img src="{% static 'Images/logo.png' %}" alt="">
+                
+            </div>
+            
+            
+            <div class="prt2">
+                <a href="/">Home</a>
+                
+            </div>
+            
+          
+            
+            </div>
+
+     <div id="centre">
+        <div class="right">
+            <img src="https://www.pngall.com/wp-content/uploads/4/Teacher-PNG-Picture.png" alt="">
+        </div>
+        <div class="mid">
+            <h1>Teacher's Signup</h1>
+        {% if request.session.details %}
+       
+     
+        <form style=" display: flex; flex-direction: column; align-items: center; margin-top: 10vh; gap: 5vh;" id="otpform" action="/teacherSignup/" method="post">
+            {% csrf_token %}
+            
+            <input  id="otp"  type="number" name="otp" id="otp" placeholder="Enter OTP Here">
+            <input id="otpsub" style="cursor: pointer;" type="submit">
+            <img style="height: 40vh; object-fit: cover;" src="https://cdni.iconscout.com/illustration/premium/thumb/otp-authentication-security-5053897-4206545.png " alt="">
+            <div id="message">
+                {% if messages %}
+            <ul class="messages">
+            {% for message in messages %} 
+            <li style="color: red; font-size: 2vw; margin-top: 1vh;"  {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+            </div>
+        </form>
+      
+        {% else %}
+        <form action="/teacherSignupOTP/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}   
+            <div class="name">
+                <input type="text" name="firstName" id="firstName" placeholder="First Name"><br>
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name"><br>   
+            </div>
+             <input type="number" name="mobile" id="mobile" placeholder="Contact Number">
+            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="password" name="password" id="password" placeholder="password">
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="ConfirmPassword">
+            <textarea name="address" id="address" cols="20" rows="2" placeholder="Address"></textarea>
+            <select name="course" id="course">
+                <option value="" disabled selected>Select Courses</option>
+                <option value="C">C</option>
+                <option value="C++">C++</option>
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+                </select>
+                
+           <div class="name">
+            <label id="filename" for="">Upload Image :-</label>
+            <input id="file" type="file" name="img">
+           </div>
+            <button id="SubButton">Submit</button>
+            {% endif %}
+        </form>
+        </div>
+     </div>
+      
+    
+
+
+
+    </div>
+
+    
+</body>
+</html>

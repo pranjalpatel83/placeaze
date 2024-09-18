@@ -1,0 +1,334 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Test</title>
+    <style>
+        body{
+            *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: gilroy;
+        }
+        html,body{
+        height: 100%;
+        width: 100%;
+        }
+        #nav{
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0vw 3.5vw;
+            /* background-color: rgba(254, 196, 189, 0.387); */
+          border-bottom: 1px solid black;
+            
+            
+            
+        }
+        .prt2{
+            display: flex;
+            gap: 7vw;
+        }
+        .prt1 {
+            display: flex;
+            align-items: center
+            ;
+        }
+        .prt1 img{
+            height: 4vw;
+        }
+        .prt2 a{
+            text-decoration: none;
+            font-size: 1.5vw;
+            color: black;
+            font-weight: 600;
+            /* background-color: salmon; */
+            padding: 1vw;
+            border-radius: 20px;
+            /* color: white; */
+        }
+        .prt3 button{
+            text-decoration: none;
+            font-size: 1.5vw;
+            color: black;
+            font-weight: 600;
+            background-color: salmon;
+            padding: 1vw;
+            border-radius: 20px;
+            color: white;
+            border: none;
+        
+        }
+        
+        
+        #main{
+            height: 100%;
+            width: 100%;
+        }
+        
+        #page1{
+            min-height: 100%;
+            width: 100%;
+            
+        }
+        .quetion{
+            width: 100%;
+            /* height: 70vh; */
+            /* background-color: red; */
+            padding: 2vw;
+        
+        }
+        .quetion h1{
+        
+            font-size: 2.9vw;
+            font-family: gilroy;
+            font-weight: 700;
+            color: salmon;
+            padding-left: 3vw;
+    
+        }
+        
+        .que {
+            
+            padding-top: 3vh;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+            padding-left: 3vw;
+            /* background-color: royalblue; */
+        
+        }
+        .que h3{
+            display: flex;
+            font-size: 1.6vw;
+            font-family: kinta;
+            align-items: center;
+            gap: 2vw;
+            
+            
+        }
+        
+        h3 span{
+            font-size: 1.6vw;
+            font-family: kinta;
+            align-items: center;
+        }
+        
+        .que h5{
+            font-size: 1.3vw;
+            display: flex;
+            gap: 2.2vw;
+            margin-left: 1vw;
+            
+            line-height: 2.7vh;
+            font-family: kinta;
+        }
+        .que span{
+            font-size: 1.3vw;
+            font-family: kinta;
+            
+        }
+        .que  h4{
+            display: flex;
+            align-items: center;
+            gap: 2vw;
+            font-size: 1.5vw;
+        
+        }
+        .head{
+             padding: 3vw; 
+             display: flex;
+            justify-content: space-between;
+            padding: 2vw ;
+            box-shadow: 10px 10px 10px 10px #dadadd;
+            margin-top: 2vh;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 2vw;
+        }
+    
+        .head h4{
+            font-size: 1.5vw;
+            font-family: kinta;
+        }
+        .d{
+            display: flex; flex-direction: column; gap: 1vh;
+        }
+        .but{
+            /* box-shadow: 10px 10px 10px 10px #dadadd; */
+     padding: 2vw;
+        /* background-color: red; */
+        margin-top: 3vh;
+        width: 40%;
+        display: flex;
+    justify-content: space-around;
+        }
+        .but button{
+            padding: 1.52vw;
+            display: flex;
+            border-radius: 2vw;
+            background-color: salmon;
+            color: white;
+            border: none;
+            cursor: pointer;
+        
+    
+        }
+        .but a{
+            color: white;
+            text-decoration: none;
+            font-size: 1.5vw;
+        }
+        .options h5{
+            font-weight: 400;
+            font-size: 1.3vw;
+        }
+    
+    
+        }
+        </style>
+</head>
+<body>
+    <div id="main">
+        <div id="page1">
+            <div id="nav">
+                    
+                <div class="prt1">
+                    <img src="{% static 'Images/logo.png' %}" alt="">
+                    
+                </div>
+                
+                
+                <div class="prt2">
+                    <a href="/">Home</a>
+                    <a href="#">Courses</a>
+                    <a href="/studentQuizPage/">Quizes</a>
+                    {% if user.is_authenticated %}
+                    <a href="/studentResultPage/">Results</a>
+                    <a href="/studentProfilePage/">Profile</a>
+                    {% endif %}
+                </div>
+                
+                {% if user.is_authenticated %}
+                
+                <div style="display: flex; gap: 3vw;" class="prt3">
+                    
+                    <!-- <a href="/"><button>Home</button></a> -->
+                    <a href="/logoutUser/"><button>Sign out</button></a>
+                  <!-- <i class="ri-menu-3-line"></i> -->
+                  <!-- <div class="admin">
+                   
+                   <h4>Teacher</h4>
+                   <h4>Admin</h4>
+                  
+                  </div> -->
+              </div>
+              {% else %}
+                  <div class="prt3">
+                    <a href="/studentLoginPage/"><button>Sign in</button></a>
+                  <i class="ri-menu-3-line"></i>
+                  <div class="admin">
+                   
+                    <a href="/teacherLoginPage/"><h4>Teacher</h4></a>
+                    <a href="/adminLoginPage/"><h4>Admin</h4></a>
+                   
+                   </div>
+    
+                </div>
+              {% endif %}
+    
+                </div>
+                <div  class="head">
+                  <div style="display: flex; flex-direction: column; gap: 1vh;" class="d">
+                    <h4>Subject :- {{subject}}</h4>
+                    <h4>Topic :- {{topic}}</h4>
+                    <h4>Duration :- {{duration}}</h4>
+                  </div>
+                   
+                   
+                    
+
+
+                </div>
+                <!-- <p>Subject:- {{subject}}  Topic:- {{topic}}   Duration:- {{duration}}</p>
+                <p>Start Date:- {{startDate}}    Start Time:- {{startTime}}</p>
+                <p>End Date:- {{endDate}}    End Time:- {{endTime}}</p> -->
+                
+                <div class="quetion">
+                    <h1>Questions </h1>
+                    {% for i in qList %}
+
+
+                    <div class="que">
+                      <h3><span>Q.{{i.1}}</span>  {{i.2}}  </h3>  
+                      <div class="options">
+                        <h5><span>a</span> {{i.3}} </h5>
+                      <h5><span>b</span> {{i.4}} </h5>
+                      <h5><span>c</span> {{i.5}} </h5>
+                      <h5><span>d</span> {{i.6}} </h5>
+                      </div>
+                      <h4>Ans :- {{i.8}} <span id="mark">Marks:{{i.7}}</span></h4>
+                      
+                    </div>
+                {% endfor %}
+               
+                
+    
+        <!-- <div>
+            {% if messages %}
+        <ul class="messages">
+        {% for message in messages %} 
+        <li style="color: red; font-size: 1.5vw;"  {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        </div> -->
+       
+    
+    
+    
+    
+    
+                </div>
+    
+        </div>
+    </div>
+
+   
+
+
+
+
+
+
+
+    <div>
+        {% if messages %}
+    <ul class="messages">
+    {% for message in messages %} 
+    <script>
+        alert(`{{message}}`)
+    </script>
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+    <!-- <p>Subject:- {{subject}}            {{duration}}              Topic:- {{topic}}</p>
+                              {% for i in qList %}
+                                <p>Q{{i.1}} {{i.2}}  </p>  <p>Max Marks: {{i.7}}</p>
+                                <p>A {{i.3}}</p>
+                                <p>B {{i.4}}</p>
+                                <p>C {{i.5}}</p>
+                                <p>D {{i.6}}</p>
+                                <p>Ans:- {{i.8}}</p>
+                              {% endfor %} -->
+
+</body>
+</html>

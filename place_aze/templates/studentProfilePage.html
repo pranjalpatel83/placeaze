@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile Page</title>
+    <link rel="stylesheet" href="{% static 'Css/studentprofile.css' %}">
+
+</head>
+<body>
+
+<div id="main">
+    <div id="page1">
+        <div id="nav">
+                
+            <div class="prt1">
+                <img src="{% static 'Images/logo.png' %}" alt="">
+                
+            </div>
+            
+            
+            <div class="prt2">
+                <a href="/">Home</a>
+                <a href="#">Courses</a>
+                <a href="/studentQuizPage/">Quizes</a>
+                {% if user.is_authenticated %}
+                <a href="/studentResultPage/">Results</a>
+                <a href="/studentProfilePage/">Profile</a>
+                {% endif %}
+            </div>
+            
+            {% if user.is_authenticated %}
+            
+            <div class="prt3">
+              <a href="/logoutUser/"><button>Sign out</button></a>
+              <!-- <i class="ri-menu-3-line"></i> -->
+              <!-- <div class="admin">
+               
+               <h4>Teacher</h4>
+               <h4>Admin</h4>
+              
+              </div> -->
+          </div>
+          {% else %}
+              <div class="prt3">
+                <a href="/studentLoginPage/"><button>Sign in</button></a>
+              <i class="ri-menu-3-line"></i>
+              <div class="admin">
+                <style>
+                  /* a{
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    font-size: 1.3vw;
+                    color: black;
+                    font-family: kinta;
+                    line-height: 5vh;
+                  } */
+               
+
+                </style>
+                <a href="/teacherLoginPage/"><h4>Teacher</h4></a>
+                <a href="/adminLoginPage/"><h4>Admin</h4></a>
+               
+               </div>
+
+            </div>
+          {% endif %}
+
+            </div>
+
+
+            <div class="profile">
+               
+                <img src="/media/{{picture}}" alt="">
+
+              <div class="ce">
+                <div class="left">
+                    
+                    <h1> Name:- </h1>
+                    <h1> Contact No:- </h1>
+                    <h1>Address:-</h1>
+                    <h1>Interested Course:- </h1>
+
+               </div>
+               <div class="right">
+                   <h1> {{name}} </h1>
+                   <h1>{{mob}}</h1>
+                    <h1>{{address}}</h1> 
+                   <div class="box">
+                    <h1> {% for i in course %}
+                        {% if i == '' %}
+                        {% else %}
+                        <h1>{{i}},</h1>
+                        {% endif %}
+                        {% endfor %}</h1> 
+                   </div>
+
+               </div>
+             
+              </div>
+
+              <div class="bu">
+                <button><a href="/editProfilePage/">Edit Details</a></button>
+    <button><a href="/editProfilePicturePage/">Edit Picture</a></button>
+              </div>
+
+              <div style="color: red; font-size: 2vw;">
+                {% if messages %}
+            <ul class="messages">
+            {% for message in messages %} 
+
+            <script>
+                alert(`{{message}}`)
+            </script>
+            <!-- <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> -->
+            {% endfor %}
+            </ul>
+            {% endif %}
+            </div>
+        
+            </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

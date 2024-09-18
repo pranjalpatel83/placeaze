@@ -1,0 +1,178 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Answers Page</title>
+    <link rel="stylesheet" href="{% static 'Css/viewAnswer.css' %}">
+
+</head>
+<body>
+
+        <div id="main">
+            <div id="page1">
+                <div id="nav">
+                
+                    <div class="prt1">
+                        <img src="{% static 'Images/logo.png' %}" alt="">
+                        
+                    </div>
+                    
+                    
+                    <div class="prt2">
+                        <a href="/">Home</a>
+                        <a href="#">Courses</a>
+                        <a href="/studentQuizPage/">Quizes</a>
+                        {% if user.is_authenticated %}
+                        <a href="/studentResultPage/">Results</a>
+                        <a href="/studentProfilePage/">Profile</a>
+                        {% endif %}
+                    </div>
+                    
+                    {% if user.is_authenticated %}
+                    
+                    <div class="prt3">
+                      <a href="/logoutUser/"><button>Sign out</button></a>
+                      <!-- <i class="ri-menu-3-line"></i> -->
+                      <!-- <div class="admin">
+                       
+                       <h4>Teacher</h4>
+                       <h4>Admin</h4>
+                      
+                      </div> -->
+                  </div>
+                  {% else %}
+                      <div class="prt3">
+                        <a href="/studentLoginPage/"><button>Sign in</button></a>
+                      <i class="ri-menu-3-line"></i>
+                      <div class="admin">
+                        <style>
+                          /* a{
+                            text-transform: uppercase;
+                            text-decoration: none;
+                            font-size: 1.3vw;
+                            color: black;
+                            font-family: kinta;
+                            line-height: 5vh;
+                          } */
+                       
+        
+                        </style>
+                        <a href="/teacherLoginPage/"><h4>Teacher</h4></a>
+                        <a href="/adminLoginPage/"><h4>Admin</h4></a>
+                       
+                       </div>
+        
+                    </div>
+                  {% endif %}
+        
+                    </div>
+
+                    <h1>View Answers</h1>
+                    <div class="ans">
+
+                        <h3 style="font-size: 4vw; font-weight: 500; font-family: Montserrat;">Questions</h3>
+                       
+                        {% for i in qList %}
+                      
+                        <div class="qu">
+                        <h2><span>Q.{{i.0}}</span> {{i.1}} <span id="mar"> Marks :- {{i.7}}</span></h2>
+                        <div class="options">
+                            <h5 style="background-color: transparent; color: black;" id="one" > a)  {{i.2}}</h5>
+                            <h5 id="two" > b)  {{i.3}}</h5>
+                            <h5 id="three" > c)   {{i.4}}</h5>
+                            <h5 id="four" >d)   {{i.5}}</h5>
+                               
+                        </div>
+                       <div style="margin-top: -2vh; display: flex; flex-direction: column; gap: 1vh; margin-left: 1vw;" class="a">
+                        <h4 style="font-family: gilroy; font-weight: 500;" >You marked :- <span style="color: blue;">{{i.6}}</span>
+                        </h4>
+                        <h4 style="font-family: gilroy; font-weight: 500;" >Correct Ans :- <span>{{i.8}}
+                        </span> </h4>
+                       </div>
+                        <!-- <script>
+                            var ans=`{{i.6}}`
+                            var marked=`{{i.8}}`
+                            var cor=document.querySelector(".qu h4 span");
+                            
+                            if(ans===marked) {
+                                  
+                                cor.textContent="Correct";
+                                cor.style.color="blue"
+                                console.log(cor)
+                                console.log("correct")
+                            }
+                            else {
+                            
+    
+                                cor.textContent="Wrong"
+                                cor.style.color="red"
+    
+                               console.log("wrong") 
+                            }
+                            // console.log( "Ans:- "+`{{i.6}}`)
+                            // console.log( "Marked:- "+`{{i.8}}`)
+    
+                        </script> -->
+                       
+                       </div>
+                      
+                      {% endfor %}
+
+
+
+
+
+
+                    </div>
+        
+
+
+
+
+
+            </div>
+        </div> 
+
+
+
+
+
+
+    <div>
+        {% if messages %}
+    <ul class="messages">
+    {% for message in messages %} 
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+    <!-- <table>
+        <th>QId</th>
+        <th>Question</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>Ans</th>
+        <th>Marked Ans</th>
+        <th>Marks</th>
+        {% for i in qList %}
+        <tr>
+            <td>{{i.0}}</td>
+            <td>{{i.1}}</td>
+            <td>{{i.2}}</td>
+            <td>{{i.3}}</td>
+            <td>{{i.4}}</td>
+            <td>{{i.5}}</td>
+            <td>{{i.6}}</td>
+            <td>{{i.8}}</td>
+            <td>{{i.7}}</td>
+        </tr>
+        {% endfor %}
+    </table> -->
+</body>
+</html>

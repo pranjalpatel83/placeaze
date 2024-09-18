@@ -1,0 +1,179 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+height: 100%;
+width: 100%;
+}
+
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    
+}
+#nav{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vw 3.5vw;
+    /* background-color: rgba(254, 196, 189, 0.387); */
+    border-bottom-left-radius: 30px ;
+    border-bottom-right-radius:30px ;
+    
+    
+    
+}
+.prt2{
+    display: flex;
+    gap: 7vw;
+}
+.prt1 {
+    display: flex;
+    align-items: center
+    ;
+}
+.prt1 img{
+    height: 4vw;
+}
+.prt3{
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    /* background-color: black; */
+    position: relative;
+}
+.prt3 i{
+    font-size: 2.2vw;
+    cursor: pointer;
+    color: salmon;
+    transition: all ease 0.3s;
+    z-index: 9    ;
+}
+
+.admin{
+    position: absolute;
+    padding: 1.5vw;
+    
+    border-radius: 20px;
+    /* background-color: salmon; */
+    color: salmon;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+        bottom: -100px;
+        right: -20%;
+        height: 8vw;
+        transition: all ease 0.3s;
+        opacity: 0;
+        text-align: start;
+        
+        
+
+}
+.admin h4{
+    font-size: 1.3vw;
+    line-height: 1.3vh;
+    font-family: kinta;
+    
+}
+.prt3 button{
+    font-size: 1.4vw;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.9vw 2vw;
+    border: none;
+    background-color: salmon;
+    color: white;
+    font-family: gilroy;
+
+}
+.prt2 a{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: 600;
+}
+.profile{
+    /* background-color: red; */
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8vh;
+    padding: 2vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(189, 210, 198, 0.216);
+    border-radius: 20px;
+    margin-top: 5vh;
+
+
+
+}
+.profile img{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.ce{
+    display: flex;
+    /* background-color: skyblue; */
+    width: 65%;
+    gap: 3vw;
+    
+
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    width: 60%;
+}
+.left h1{
+    font-size: 2.4vw;
+    font-weight: 700;
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    width: 40%;
+
+}
+.right h1{
+    font-size: 2.3vw;
+    font-weight: 500;
+}
+.box{
+    display: flex;
+    align-items: end;
+    margin-top: 1vh;
+
+}
+.bu a{
+    text-decoration: none;
+    color: white;
+    font-family: gilroy;
+}
+.bu button{
+    background-color: salmon;
+    padding: 1.5vw 2vw;
+    border-radius: 2vw;
+    font-size: 2vw ;
+    border: none;
+}
+
+.bu{
+    display: flex;
+    gap: 3vw;
+}

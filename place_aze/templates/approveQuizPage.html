@@ -1,0 +1,313 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve Quiz Page</title>
+</head>
+<body>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: gilroy;
+    }
+    html,body{
+    height: 100%;
+    width: 100%;
+    }
+    
+    
+    #page1{
+        height: 100vh;
+        width: 100%;
+        /* background-color: red; */
+        
+    }
+    
+    #page1{
+        height: 100vh;
+        width: 100%;
+        /* background-color: red; */
+        
+    }
+    #nav{
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0vw 3.5vw;
+        /* background-color: rgba(254, 196, 189, 0.387); */
+        /* border-bottom-left-radius: 30px ;
+        border-bottom-right-radius:30px ; */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.182);
+        
+        
+        
+    }
+    .prt2{
+        display: flex;
+        gap: 7vw;
+    }
+    .prt1 {
+        display: flex;
+        align-items: center
+        ;
+    }
+    .prt1 img{
+        height: 4vw;
+    }
+    .prt3{
+        display: flex;
+        gap: 80px;
+        align-items: center;
+        /* background-color: black; */
+        position: relative;
+    }
+    .prt3 i{
+        font-size: 2.2vw;
+        cursor: pointer;
+        color: salmon;
+        transition: all ease 0.3s;
+        z-index: 9    ;
+    }
+    
+    .prt3 button{
+        font-size: 1.4vw;
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 0.9vw 2vw;
+        border: none;
+        background-color: salmon;
+        color: white;
+        font-family: gilroy;
+    
+    }
+    .prt2 a{
+        text-decoration: none;
+        font-size: 1.6vw;
+        color: black;
+        font-family: gilroy;
+        font-weight: 700;
+    }
+    .centre2{
+        /* background-color: red; */
+        padding: 2vw;
+    
+    }
+    .centre2 #hed{
+        color: salmon;
+        font-size: 3vw;
+        text-align: center;
+    }
+    
+     .centre2 > .info2{
+        margin-top: 4vh;
+        display: flex;
+        /* background-color: red; */
+        justify-content: space-between;
+        /* gap: 6vw; */
+        box-shadow: 10px 10px 80px 10px rgba(0, 0, 0, 0.219);
+        border-radius: 1vw;
+    }
+    .info2 h2{
+        font-size: 2.2vw;
+        /* white-space: nowrap; */
+        
+    }
+    .data-2 h4{
+        font-size: 1.4vw;
+        font-family: kinta;
+    }
+    .data-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 6vh;
+        align-items: center;
+        /* width: fit-content; */
+        border-right: 1px solid rgba(66, 66, 66, 0.14);
+        padding: 1vw;
+        width: 25%;
+        /* background-color: royalblue; */
+        
+    }
+    .col-2{
+        display: flex;
+        flex-direction: column;
+        gap: 4vh;
+        align-items: center;
+    
+    }
+    .col-2 button{
+        background-color: salmon;
+        border-radius: 1vw;
+        padding: 1vw;
+        border: none;
+        color: white ;
+        margin-top: -3vh;
+        font-size: 1.4vw;
+        cursor: pointer;
+    }
+    .col-2 a{
+        color: white;
+        font-size: 1.3vw;
+    }
+    
+    
+    </style> 
+
+    <div id="main">
+        <div id="page1">
+            <div id="nav">
+                    
+                <div class="prt1">
+                    <img src="{% static 'Images/logo.png' %}" alt="">
+                    
+                </div>
+                
+                
+              
+                {% if user.is_authenticated %}
+                
+                <div class="prt3">
+                    <a href="/"><button>Home</button></a>
+
+                    
+                  <a href="/logoutUser/"><button>Sign out</button></a>
+                  <!-- <i class="ri-menu-3-line"></i> -->
+                  <!-- <div class="admin">
+                   
+                   <h4>Teacher</h4>
+                   <h4>Admin</h4>
+                  
+                  </div> -->
+              </div>
+              {% else %}
+                  <div class="prt3">
+                    <a href="/studentLoginPage/"><button>Sign in</button></a>
+                  <i class="ri-menu-3-line"></i>
+                  <div class="admin">
+                   
+                    <a href="/teacherLoginPage/"><h4>Teacher</h4></a>
+                    <a href="/adminLoginPage/"><h4>Admin</h4></a>
+                   
+                   </div>
+    
+                </div>
+              {% endif %}
+    
+                </div>
+    
+                <div class="centre2">
+                    <h1 id="hed"> Approve Quizzes following</h1>
+    
+                    <div  class="info2">
+                        <div class="data-2">
+                            <h2>Test-Id</h2>
+                            <div class="col-2">
+                                {% for i in inactiveTest %}
+                            <h4>{{i.2}}</h4>
+                            {% endfor %}
+                            </div>
+                 
+    
+                        </div>
+                        <div class="data-2">
+                            <h2>Subject</h2>
+                            <div class="col-2">
+                        {% for i in inactiveTest %}
+                                <h4>{{i.3}}</h4>
+                 {% endfor %}
+
+                            </div>
+    
+                        </div>
+                      
+    
+                    
+                        <div class="data-2">
+                            <h2>Uploaded By</h2>
+                            <div class="col-2">
+                                {% for i in inactiveTest %}
+                            <h4>{{i.1}}</h4>
+                 {% endfor %}
+
+                            </div>
+    
+                        </div>
+        
+                      
+                        <div class="data-2">
+                            <h2>View</h2>
+                            <div class="col-2">
+                                {% for i in inactiveTest %}
+
+                        
+                           <a id="but" href="/viewQuizPage/{{i.2}}/"><button>View Quiz</button></a>
+                           {% endfor %}
+
+                            </div>
+    
+                        </div>
+      
+                    </div>
+            
+    
+    
+    
+    
+                </div>
+                
+    
+               
+    
+    
+              
+    
+    
+    
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div>
+        {% if messages %}
+    <ul class="messages">
+    {% for message in messages %} 
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+
+    <p>Approve following Quizzes:-</p>
+    <table>
+        <th>Test-ID</th>
+        <th>Subject</th>
+        <th>Uploaded By</th>
+        <th></th>
+        {% for i in inactiveTest %}
+        <tr>
+            <td>{{i.2}}</td>
+            <td>{{i.3}}</td>
+            <td>{{i.1}}</td>
+            <td><a href="/viewQuizPage/{{i.2}}/"><button>View Quiz</button></a></td>
+        </tr>
+        {% endfor %}
+    </table> -->
+</body>
+</html>

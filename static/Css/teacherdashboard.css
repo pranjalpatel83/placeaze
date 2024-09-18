@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+height: 100%;
+width: 100%;
+}
+
+
+#main{
+    height: 100%;
+    width: 100%;
+}
+
+#page1{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    
+}
+
+#nav{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    /* background-color: rgba(254, 196, 189, 0.387); */
+ padding: 0vw 2vw;
+    border-bottom: 1px solid black;
+    
+    
+    
+}
+.prt2{
+    display: flex;
+    gap: 7vw;
+}
+.prt1 {
+    display: flex;
+    align-items: center
+    ;
+}
+.prt1 img{
+    height: 4vw;
+}
+.prt2 a{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: 600;
+    background-color: salmon;
+    padding: 1vw;
+    border-radius: 20px;
+    color: white;
+}
+
+#left{
+    height: 100%;
+    width: 25%;
+    padding: 1vw;
+    /* background-color: rosybrown; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    border-right: 1px solid black;
+}
+
+#right{
+    height: 100%;
+    width: 75%;
+    /* background-color: royalblue; */
+}
+#left h2{
+    font-size: 3vw;
+    font-family: gilroy;
+   
+    color: salmon;
+}
+#left img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+#left #img{
+    height: 25vh;
+    width: 12vw;
+    background-color: salmon;
+    border-radius: 50%;
+
+}
+#left h1{
+    font-size: 1.8vw;
+    font-weight: 800;
+    font-family: kinta;
+
+}
+
+.work{
+    display: flex;
+    flex-direction: column;
+}
+.work a{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: 600;
+    background-color: salmon;
+    padding: 1vw;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+}
+
+#right h1{
+    font-size: 2.5vw;
+    font-family: kinta;
+    text-align: center;
+    margin-top: 10vh;
+    
+
+
+}

@@ -1,0 +1,98 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/teacherlogin.css' %}">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <title>Teacher Login Page</title>
+
+</head>
+<body>
+    <div>
+       
+    </div>
+
+    
+  <div id="main">
+    <div class="page1">
+        <div id="nav">
+                    
+            <div class="prt1">
+                <img src="{% static 'Images/logo.png' %}" alt="">
+                
+            </div>
+            
+            
+            <div class="prt2">
+                <a href="/">Home</a>
+                <!-- <a href="">Courses</a>
+                <a href="">-Quizes</a> -->
+            </div>
+            
+            <!-- {% if user.is_authenticated %}   
+           
+          {% else %} -->
+              <!-- <div class="prt3">
+                
+              <i class="ri-menu-3-line"></i>
+              <div class="admin">
+               
+                <h4>Teacher</h4>
+                <h4>Admin</h4>
+               
+               </div>
+    
+            </div>
+          {% endif %} -->
+    
+            </div>
+      
+       
+    
+    <div class="middle">
+        
+       <div class="left">
+        <div class="cont">
+            <h1>  Teacher's Login page</h1>
+            <form action="/teacherLogin/" method="post">
+                {% csrf_token %}
+                
+                <input type="email" name="email" id="email" placeholder="Email"><br>
+                <input type="password" name="password" id="password" placeholder="Password"><br>
+                <input class="subbutton" type="submit" placeholder="Submit"><br>
+                <p>Don't have an account <a href="/teacherSignupPage/">Create an Account</a></p>
+                <p><a href="/teacherForgotPasswordPage/">Forgot Password</a></p>
+            </form>
+            <div id="messagePop">
+                {% if messages %}
+                <ul style="margin-top: -6vh; color: red;" class="messages">
+                {% for message in messages %} 
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            </div>
+       </div>
+       <div class="right">
+        <img src="https://www.pngall.com/wp-content/uploads/4/Teacher-PNG-Picture.png" alt="">
+       </div>
+    </div>
+    
+    
+       </div>
+    
+  </div>
+
+
+
+
+   
+</body>
+</html>
